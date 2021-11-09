@@ -26,13 +26,15 @@ public class UserDaoImpl implements UserDao {
     }
 
 
+
     @Override
-    public User getOne(Long id) {
+    public User login(String email, String password) {
         PreparedStatement statement = null;
         ResultSet resultSet = null;
         try {
-            statement = connection.prepareStatement("SELECT * FROM users WHERE Id = ?");
-            statement.setLong(0,id);
+            statement = connection.prepareStatement("SELECT * FROM users WHERE Email = ? AND Password = ?");
+            statement.setString(1,email);
+            statement.setString(2,password);
             resultSet = statement.executeQuery();
             if (resultSet.next()) {
                 User obj = new User();

@@ -1,6 +1,7 @@
 package br.gustavoakira.dentist.boundary;
 
 import br.gustavoakira.dentist.db.DB;
+import br.gustavoakira.dentist.entity.User;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -21,6 +22,8 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class MainBoundary implements Initializable {
+
+    private User user;
 
     @FXML
     private ListView<String> listView;
@@ -65,5 +68,9 @@ public class MainBoundary implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

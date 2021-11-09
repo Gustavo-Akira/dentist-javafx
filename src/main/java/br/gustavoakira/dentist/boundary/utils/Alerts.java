@@ -1,4 +1,4 @@
-package br.gustavoakira.dentist.utils;
+package br.gustavoakira.dentist.boundary.utils;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
