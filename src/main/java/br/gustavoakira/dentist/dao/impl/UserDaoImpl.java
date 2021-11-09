@@ -133,4 +133,31 @@ public class UserDaoImpl implements UserDao {
             DB.closeResultSet(resultSet);
         }
     }
+
+    @Override
+    public User getOne(Long id) {
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        try {
+            statement = connection.prepareStatement("SELECT * FROM users WHERE Id=?");
+            statement.setLong(1,id);
+            resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                User obj = new User();
+                obj.setId(resultSet.getLong("Id"));
+                obj.setName(resultSet.getString("Name"));
+                obj.setEmail(resultSet.getString("Email"));
+                obj.setType(typeDao.getType(resultSet.getLong("UserTypeId")));
+                obj.setPassword(resultSet.getString("Password"));
+                return obj;
+            }
+            return null;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            DB.closeStatement(statement);
+            DB.closeResultSet(resultSet);
+        }
+        return null;
+    }
 }

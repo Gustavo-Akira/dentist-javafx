@@ -11,4 +11,5 @@ public interface UserDao {
     void update(Long id, User user);
     void remove(Long id);
     List<User> getAll() ;
+    User getOne(Long id);
 }

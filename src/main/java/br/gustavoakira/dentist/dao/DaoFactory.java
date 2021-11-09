@@ -14,5 +14,5 @@ public class DaoFactory {
         return new UserDaoImpl(DB.getConnection(),createUserTypeDao());
     }
 
-    public static ServiceDao createServiceDao(){return  new ServiceDaoImpl(DB.getConnection());}
+    public static ServiceDao createServiceDao(){return  new ServiceDaoImpl(DB.getConnection(),createUserDao());}
 }

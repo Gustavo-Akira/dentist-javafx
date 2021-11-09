@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface ServiceDao {
     void insert(Services services);
-    void update(Services services);
-    void delete(Services services);
-    List<Services> getServices();
+    void update(Long id, Services services);
+    void delete(Long id);
+    List<Services> getServices(Long id);
 }
