@@ -5,9 +5,15 @@ import br.gustavoakira.dentist.dao.UserDao;
 import br.gustavoakira.dentist.entity.User;
 
 public class LoginController {
+
+    private static User user;
     private UserDao dao = DaoFactory.createUserDao();
 
-    public User login(String email, String password){
-        return dao.login(email,password);
+    public void login(String email, String password){
+        user = dao.login(email,password);
+    }
+
+    public static User getLogged(){
+        return user;
     }
 }

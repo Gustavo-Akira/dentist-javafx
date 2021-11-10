@@ -73,6 +73,7 @@ public class ServiceDaoImpl implements ServiceDao {
         ResultSet set = null;
         try {
             statement = connection.prepareStatement("SELECT * FROM services WHERE Id=?");
+            statement.setLong(1,id);
             set = statement.executeQuery();
             List<Services> services = new ArrayList<>();
             while (set.next()){

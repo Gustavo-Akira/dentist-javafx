@@ -47,7 +47,8 @@ public class LoginBoundary implements Initializable {
     }
 
     private void onClickLogin(){
-        User logged = controller.login(emailField.getText(), passwordField.getText());
+        controller.login(emailField.getText(), passwordField.getText());
+        User logged = controller.getLogged();
         if(logged != null) {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("main.fxml"));
