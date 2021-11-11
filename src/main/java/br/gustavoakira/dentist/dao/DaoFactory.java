@@ -1,5 +1,6 @@
 package br.gustavoakira.dentist.dao;
 
+import br.gustavoakira.dentist.dao.impl.ClientDaoImpl;
 import br.gustavoakira.dentist.dao.impl.ServiceDaoImpl;
 import br.gustavoakira.dentist.dao.impl.UserDaoImpl;
 import br.gustavoakira.dentist.dao.impl.UserTypeDaoImpl;
@@ -15,4 +16,8 @@ public class DaoFactory {
     }
 
     public static ServiceDao createServiceDao(){return  new ServiceDaoImpl(DB.getConnection(),createUserDao());}
+
+    public static ClientDao createClientDao(){
+        return new ClientDaoImpl(DB.getConnection(), createUserDao());
+    }
 }

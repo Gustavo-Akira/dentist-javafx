@@ -32,7 +32,7 @@ public class MainBoundary implements Initializable {
     private BorderPane borderPane;
 
     private ObservableList<String> list = FXCollections.observableArrayList(
-            "Usuarios","Serviços");
+            "Usuarios","Serviços","Clients");
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
