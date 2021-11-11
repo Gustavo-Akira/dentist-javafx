@@ -76,7 +76,6 @@ public class ServiceDaoImpl implements ServiceDao {
             statement.setLong(1,id);
             set = statement.executeQuery();
             List<Services> services = new ArrayList<>();
-            System.out.println(set.next());
             while (set.next()){
                 Services service = new Services();
                 service.setId(set.getLong("Id"));
@@ -85,7 +84,6 @@ public class ServiceDaoImpl implements ServiceDao {
                 service.setUser(dao.getOne(id));
                 services.add(service);
             }
-            System.out.println(services);
             return services;
         }catch (SQLException e){
             e.printStackTrace();

@@ -1,6 +1,8 @@
 package br.gustavoakira.dentist.boundary;
 
+import br.gustavoakira.dentist.boundary.form.ClientFormBoundary;
 import br.gustavoakira.dentist.boundary.form.ServiceFormBoundary;
+import br.gustavoakira.dentist.boundary.form.UserFormBoundary;
 import br.gustavoakira.dentist.boundary.listener.IListener;
 import br.gustavoakira.dentist.boundary.utils.Alerts;
 import br.gustavoakira.dentist.controller.ClientController;
@@ -69,6 +71,8 @@ public class ClientBoundary implements Initializable, IListener {
             stage.setScene(new Scene(pane));
             stage.setTitle("Client form");
             stage.setResizable(false);
+            ClientFormBoundary formBoundary = loader.getController();
+            formBoundary.addListener(this);
             stage.initOwner(parent);
             stage.initModality(Modality.WINDOW_MODAL);
             stage.showAndWait();
