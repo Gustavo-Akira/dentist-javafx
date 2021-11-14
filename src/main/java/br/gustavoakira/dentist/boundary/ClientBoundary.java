@@ -1,14 +1,13 @@
 package br.gustavoakira.dentist.boundary;
 
 import br.gustavoakira.dentist.boundary.form.ClientFormBoundary;
-import br.gustavoakira.dentist.boundary.form.ServiceFormBoundary;
-import br.gustavoakira.dentist.boundary.form.UserFormBoundary;
 import br.gustavoakira.dentist.boundary.listener.IListener;
 import br.gustavoakira.dentist.boundary.utils.Alerts;
 import br.gustavoakira.dentist.controller.ClientController;
 import br.gustavoakira.dentist.controller.LoginController;
 import br.gustavoakira.dentist.entity.Client;
 import br.gustavoakira.dentist.entity.Services;
+import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.property.SimpleLongProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.fxml.FXML;
@@ -16,10 +15,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -38,6 +34,15 @@ public class ClientBoundary implements Initializable, IListener {
 
     @FXML
     private TableColumn<Client, String> name;
+
+    @FXML
+    private TableColumn<Client, Client> viewMore;
+
+    @FXML
+    private TableColumn<Client, Client> edit;
+
+    @FXML
+    private TableColumn<Client, Client> delete;
 
     @FXML
     private Button addButton;
@@ -61,6 +66,74 @@ public class ClientBoundary implements Initializable, IListener {
     private void configTable() {
         id.setCellValueFactory(x->new SimpleLongProperty(x.getValue().getId()).asObject());
         name.setCellValueFactory(x->new SimpleStringProperty(x.getValue().getName()));
+        startDeleteButton();
+        startEditButton();
+        startViewButton();
+    }
+
+    private void startEditButton(){
+        edit.setCellValueFactory(x -> new ReadOnlyObjectWrapper<>(x.getValue()));
+        edit.setCellFactory(x->new TableCell<Client, Client>(){
+            private final Button button = new Button("edit");
+
+            @Override
+            protected void updateItem(Client item, boolean empty) {
+                super.updateItem(item, empty);
+
+                if(item == null){
+                    setGraphic(null);
+                    return;
+                }
+                setGraphic(button);
+                button.setOnMouseClicked(x->{
+                    createModal(item,(Stage) ((Node)x.getSource()).getScene().getWindow());
+                });
+            }
+
+
+        });
+    }
+
+    private void startDeleteButton(){
+        delete.setCellValueFactory(x -> new ReadOnlyObjectWrapper<>(x.getValue()));
+        delete.setCellFactory(x->new TableCell<Client, Client>(){
+            private final Button button = new Button("delete");
+
+            @Override
+            protected void updateItem(Client item, boolean empty) {
+                super.updateItem(item, empty);
+
+                if(item == null){
+                    setGraphic(null);
+                    return;
+                }
+                setGraphic(button);
+
+                button.setOnMouseClicked(x->{
+                    controller.delete(item.getId());
+                    updateData();
+                });
+            }
+        });
+    }
+
+    private void startViewButton(){
+        viewMore.setCellValueFactory(x->new ReadOnlyObjectWrapper<>(x.getValue()));
+        viewMore.setCellFactory(x-> new TableCell<>(){
+            private final Button button = new Button("view");
+
+            @Override
+            protected void updateItem(Client item, boolean empty) {
+                super.updateItem(item, empty);
+
+                if(item == null){
+                    setGraphic(null);
+                    return;
+                }
+                setGraphic(button);
+
+            }
+        });
     }
 
     private void createModal(Client client, Stage parent){
@@ -73,12 +146,29 @@ public class ClientBoundary implements Initializable, IListener {
             stage.setResizable(false);
             ClientFormBoundary formBoundary = loader.getController();
             formBoundary.addListener(this);
+            formBoundary.setClient(client);
+            formBoundary.updateForm();
             stage.initOwner(parent);
             stage.initModality(Modality.WINDOW_MODAL);
             stage.showAndWait();
         }catch (IOException e){
             Alerts.showAlert("IO Exception","Error loading the modal",e.getMessage(), Alert.AlertType.ERROR);
             e.printStackTrace();
+        }
+    }
+
+
+    private void createViewWindow(Client client, Stage parent){
+        try{
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("view/client_details.fxml"));
+            Pane pane = loader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(pane));
+            stage.initOwner(parent);
+            stage.initModality(Modality.WINDOW_MODAL);
+            stage.showAndWait();
+        }catch (IOException e){
+            Alerts.showAlert("IO Exception", "Error loading the view", e.getMessage(), Alert.AlertType.ERROR);
         }
     }
 

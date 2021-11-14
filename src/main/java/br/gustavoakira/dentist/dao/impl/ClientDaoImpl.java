@@ -29,7 +29,6 @@ public class ClientDaoImpl implements ClientDao {
             PreparedStatement statement = connection.prepareStatement("INSERT INTO clients(Name,UserId) VALUES(?,?)");
             statement.setString(1,client.getName());
             statement.setLong(2, LoginController.getLogged().getId());
-            System.out.println(client);
             statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

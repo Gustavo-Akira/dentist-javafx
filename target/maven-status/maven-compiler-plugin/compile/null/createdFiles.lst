@@ -1,6 +1,7 @@
 br\gustavoakira\dentist\boundary\form\ClientFormBoundary.class
 br\gustavoakira\dentist\db\exception\DbException.class
 br\gustavoakira\dentist\boundary\UserBoundary$2.class
+br\gustavoakira\dentist\boundary\ClientBoundary$2.class
 br\gustavoakira\dentist\entity\Appointment.class
 br\gustavoakira\dentist\boundary\MainBoundary$1.class
 br\gustavoakira\dentist\boundary\ServiceBoundary$2.class
@@ -27,6 +28,7 @@ br\gustavoakira\dentist\boundary\ServiceBoundary$1.class
 br\gustavoakira\dentist\controller\ClientController.class
 br\gustavoakira\dentist\dao\impl\UserTypeDaoImpl.class
 br\gustavoakira\dentist\entity\User.class
+br\gustavoakira\dentist\boundary\ClientBoundary$3.class
 br\gustavoakira\dentist\boundary\form\ServiceFormBoundary.class
 br\gustavoakira\dentist\dao\ClientDao.class
 br\gustavoakira\dentist\boundary\MainBoundary.class
@@ -36,6 +38,7 @@ br\gustavoakira\dentist\entity\Address.class
 br\gustavoakira\dentist\dao\impl\UserDaoImpl.class
 br\gustavoakira\dentist\controller\UserController.class
 br\gustavoakira\dentist\dao\impl\ServiceDaoImpl.class
+br\gustavoakira\dentist\boundary\ClientBoundary$1.class
 br\gustavoakira\dentist\boundary\UserBoundary$1.class
 br\gustavoakira\dentist\boundary\form\UserFormBoundary.class
 br\gustavoakira\dentist\dao\impl\ClientDaoImpl.class

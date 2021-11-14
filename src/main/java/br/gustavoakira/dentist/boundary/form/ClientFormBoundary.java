@@ -29,6 +29,8 @@ public class ClientFormBoundary implements Initializable {
     @FXML
     private Button cancelButton;
 
+    private Client client;
+
     @FXML
     private ClientController controller = new ClientController();
 
@@ -38,8 +40,15 @@ public class ClientFormBoundary implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         addButton.setOnMouseClicked(x->{
             Client client = new Client();
+            if(this.client != null && this.client.getId() != null){
+                client.setId(Long.parseLong(id.getText()));
+            }
             client.setName(name.getText());
-            controller.insert(client);
+            if(client.getId() == null) {
+                controller.insert(client);
+            }else{
+                controller.update(client);
+            }
             sendNotification();
             ((Stage) ((Node)x.getSource()).getScene().getWindow()).close();
         });
@@ -56,6 +65,19 @@ public class ClientFormBoundary implements Initializable {
     public void sendNotification(){
         for(IListener listener :listeners){
             listener.updateData();
+        }
+    }
+
+    public void setClient(Client client){
+        this.client = client;
+    }
+
+    public void updateForm(){
+        if(client != null){
+            this.id.setText(client.getId().toString());
+        }
+        if(client != null && !client.getName().isEmpty()) {
+            this.name.setText(client.getName());
         }
     }
 }
