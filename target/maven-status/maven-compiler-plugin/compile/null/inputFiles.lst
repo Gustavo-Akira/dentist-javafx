@@ -12,6 +12,7 @@ C:\Users\akira\OneDrive\Área de Trabalho\cursos\java\dentist\src\main\java\br\g
 C:\Users\akira\OneDrive\Área de Trabalho\cursos\java\dentist\src\main\java\br\gustavoakira\dentist\dao\impl\UserTypeDaoImpl.java
 C:\Users\akira\OneDrive\Área de Trabalho\cursos\java\dentist\src\main\java\br\gustavoakira\dentist\entity\Client.java
 C:\Users\akira\OneDrive\Área de Trabalho\cursos\java\dentist\src\main\java\br\gustavoakira\dentist\dao\impl\ClientDaoImpl.java
+C:\Users\akira\OneDrive\Área de Trabalho\cursos\java\dentist\src\main\java\br\gustavoakira\dentist\boundary\details\PhoneBoundary.java
 C:\Users\akira\OneDrive\Área de Trabalho\cursos\java\dentist\src\main\java\br\gustavoakira\dentist\controller\UserController.java
 C:\Users\akira\OneDrive\Área de Trabalho\cursos\java\dentist\src\main\java\br\gustavoakira\dentist\boundary\ServiceBoundary.java
 C:\Users\akira\OneDrive\Área de Trabalho\cursos\java\dentist\src\main\java\br\gustavoakira\dentist\boundary\listener\IListener.java
@@ -22,11 +23,17 @@ C:\Users\akira\OneDrive\Área de Trabalho\cursos\java\dentist\src\main\java\br\g
 C:\Users\akira\OneDrive\Área de Trabalho\cursos\java\dentist\src\main\java\br\gustavoakira\dentist\dao\UserTypeDao.java
 C:\Users\akira\OneDrive\Área de Trabalho\cursos\java\dentist\src\main\java\br\gustavoakira\dentist\boundary\ClientBoundary.java
 C:\Users\akira\OneDrive\Área de Trabalho\cursos\java\dentist\src\main\java\br\gustavoakira\dentist\entity\Appointment.java
+C:\Users\akira\OneDrive\Área de Trabalho\cursos\java\dentist\src\main\java\br\gustavoakira\dentist\boundary\form\AddressFormBoundary.java
 C:\Users\akira\OneDrive\Área de Trabalho\cursos\java\dentist\src\main\java\br\gustavoakira\dentist\boundary\MainBoundary.java
 C:\Users\akira\OneDrive\Área de Trabalho\cursos\java\dentist\src\main\java\br\gustavoakira\dentist\dao\ClientDao.java
+C:\Users\akira\OneDrive\Área de Trabalho\cursos\java\dentist\src\main\java\br\gustavoakira\dentist\boundary\details\AddressBoundary.java
+C:\Users\akira\OneDrive\Área de Trabalho\cursos\java\dentist\src\main\java\br\gustavoakira\dentist\boundary\details\ClientDetailsView.java
+C:\Users\akira\OneDrive\Área de Trabalho\cursos\java\dentist\src\main\java\br\gustavoakira\dentist\controller\AddressController.java
 C:\Users\akira\OneDrive\Área de Trabalho\cursos\java\dentist\src\main\java\br\gustavoakira\dentist\boundary\form\ServiceFormBoundary.java
+C:\Users\akira\OneDrive\Área de Trabalho\cursos\java\dentist\src\main\java\br\gustavoakira\dentist\dao\impl\PhoneDaoImpl.java
 C:\Users\akira\OneDrive\Área de Trabalho\cursos\java\dentist\src\main\java\br\gustavoakira\dentist\dao\impl\UserDaoImpl.java
 C:\Users\akira\OneDrive\Área de Trabalho\cursos\java\dentist\src\main\java\br\gustavoakira\dentist\App.java
+C:\Users\akira\OneDrive\Área de Trabalho\cursos\java\dentist\src\main\java\br\gustavoakira\dentist\dao\impl\AddressDaoImpl.java
 C:\Users\akira\OneDrive\Área de Trabalho\cursos\java\dentist\src\main\java\br\gustavoakira\dentist\dao\DaoFactory.java
 C:\Users\akira\OneDrive\Área de Trabalho\cursos\java\dentist\src\main\java\br\gustavoakira\dentist\dao\AddressDao.java
 C:\Users\akira\OneDrive\Área de Trabalho\cursos\java\dentist\src\main\java\br\gustavoakira\dentist\entity\UserType.java

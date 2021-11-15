@@ -1,9 +1,7 @@
 package br.gustavoakira.dentist.dao.impl;
 
 import br.gustavoakira.dentist.controller.LoginController;
-import br.gustavoakira.dentist.dao.AddressDao;
 import br.gustavoakira.dentist.dao.ClientDao;
-import br.gustavoakira.dentist.dao.PhoneDao;
 import br.gustavoakira.dentist.dao.UserDao;
 import br.gustavoakira.dentist.db.DB;
 import br.gustavoakira.dentist.entity.Client;
@@ -25,36 +23,45 @@ public class ClientDaoImpl implements ClientDao {
 
     @Override
     public void insert(Client client) {
+        PreparedStatement statement = null;
         try {
-            PreparedStatement statement = connection.prepareStatement("INSERT INTO clients(Name,UserId) VALUES(?,?)");
+            statement = connection.prepareStatement("INSERT INTO clients(Name,UserId) VALUES(?,?)");
             statement.setString(1,client.getName());
             statement.setLong(2, LoginController.getLogged().getId());
             statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
+        }finally {
+            DB.closeStatement(statement);
         }
     }
 
     @Override
     public void update(Long id, Client client) {
+        PreparedStatement statement = null;
         try {
-            PreparedStatement statement = connection.prepareStatement("UPDATE clients SET Name=? WHERE Id=?");
+            statement = connection.prepareStatement("UPDATE clients SET Name=? WHERE Id=?");
             statement.setString(1,client.getName());
             statement.setLong(2, id);
             statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
+        }finally {
+            DB.closeStatement(statement);
         }
     }
 
     @Override
     public void delete(Long id) {
+        PreparedStatement statement = null;
         try {
-            PreparedStatement statement = connection.prepareStatement("DELETE clients WHERE Id=?");
+            statement = connection.prepareStatement("DELETE clients WHERE Id=?");
             statement.setLong(1, id);
             statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
+        }finally {
+            DB.closeStatement(statement);
         }
     }
 

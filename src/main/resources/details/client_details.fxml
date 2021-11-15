@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/16" fx:controller="br.gustavoakira.dentist.boundary.details.ClientDetailsView">
+   <TabPane maxHeight="Infinity" maxWidth="Infinity" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/16">
+   <tabs>
+      <Tab text="Endereços">
+         <content>
+            <fx:include fx:id="address" source="address.fxml" />
+         </content>
+      </Tab>
+      <Tab text="Telefones">
+         <content>
+            <fx:include fx:id="phone" source="phone.fxml" />
+         </content>
+      </Tab>
+   </tabs>
+</TabPane>
+</AnchorPane>

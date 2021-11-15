@@ -1,9 +1,6 @@
 package br.gustavoakira.dentist.dao;
 
-import br.gustavoakira.dentist.dao.impl.ClientDaoImpl;
-import br.gustavoakira.dentist.dao.impl.ServiceDaoImpl;
-import br.gustavoakira.dentist.dao.impl.UserDaoImpl;
-import br.gustavoakira.dentist.dao.impl.UserTypeDaoImpl;
+import br.gustavoakira.dentist.dao.impl.*;
 import br.gustavoakira.dentist.db.DB;
 
 public class DaoFactory {
@@ -19,5 +16,13 @@ public class DaoFactory {
 
     public static ClientDao createClientDao(){
         return new ClientDaoImpl(DB.getConnection(), createUserDao());
+    }
+
+    public static AddressDao createAddressDao(){
+        return new AddressDaoImpl(DB.getConnection());
+    }
+
+    public static PhoneDao createPhoneDao(){
+        return new PhoneDaoImpl(DB.getConnection());
     }
 }

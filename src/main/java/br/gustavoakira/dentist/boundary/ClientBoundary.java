@@ -1,12 +1,12 @@
 package br.gustavoakira.dentist.boundary;
 
+import br.gustavoakira.dentist.boundary.details.ClientDetailsView;
 import br.gustavoakira.dentist.boundary.form.ClientFormBoundary;
 import br.gustavoakira.dentist.boundary.listener.IListener;
 import br.gustavoakira.dentist.boundary.utils.Alerts;
 import br.gustavoakira.dentist.controller.ClientController;
 import br.gustavoakira.dentist.controller.LoginController;
 import br.gustavoakira.dentist.entity.Client;
-import br.gustavoakira.dentist.entity.Services;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.property.SimpleLongProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -119,8 +119,8 @@ public class ClientBoundary implements Initializable, IListener {
 
     private void startViewButton(){
         viewMore.setCellValueFactory(x->new ReadOnlyObjectWrapper<>(x.getValue()));
-        viewMore.setCellFactory(x-> new TableCell<>(){
-            private final Button button = new Button("view");
+        viewMore.setCellFactory(x-> new TableCell<Client, Client>(){
+            private final Button button = new Button("details");
 
             @Override
             protected void updateItem(Client item, boolean empty) {
@@ -131,7 +131,9 @@ public class ClientBoundary implements Initializable, IListener {
                     return;
                 }
                 setGraphic(button);
-
+                button.setOnMouseClicked(x->{
+                    createViewWindow(item,(Stage) ((Node)x.getSource()).getScene().getWindow());
+                });
             }
         });
     }
@@ -160,8 +162,10 @@ public class ClientBoundary implements Initializable, IListener {
 
     private void createViewWindow(Client client, Stage parent){
         try{
-            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("view/client_details.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("details/client_details.fxml"));
             Pane pane = loader.load();
+            ClientDetailsView view = loader.getController();
+            view.setClient(client);
             Stage stage = new Stage();
             stage.setScene(new Scene(pane));
             stage.initOwner(parent);
@@ -169,6 +173,7 @@ public class ClientBoundary implements Initializable, IListener {
             stage.showAndWait();
         }catch (IOException e){
             Alerts.showAlert("IO Exception", "Error loading the view", e.getMessage(), Alert.AlertType.ERROR);
+            e.printStackTrace();
         }
     }
 
