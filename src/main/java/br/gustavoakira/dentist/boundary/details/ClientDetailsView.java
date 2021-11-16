@@ -17,7 +17,7 @@ public class ClientDetailsView implements Initializable {
     private AddressBoundary addressController;
 
     @FXML
-    private AnchorPane phone;
+    private PhoneBoundary phoneController;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -28,5 +28,7 @@ public class ClientDetailsView implements Initializable {
         this.client = client;
         addressController.setClient(client.getId());
         addressController.updateData();
+        phoneController.setClient(client);
+        phoneController.updateData();
     }
 }

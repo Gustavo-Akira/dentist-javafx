@@ -41,6 +41,7 @@ public class PhoneDaoImpl implements PhoneDao {
             statement.setString(1,phone.getNum());
             statement.setString(2,phone.getDdd());
             statement.setString(3,phone.getCountry());
+            statement.setLong(4, phone.getId());
             statement.executeUpdate();
         }catch (SQLException e){
             e.printStackTrace();

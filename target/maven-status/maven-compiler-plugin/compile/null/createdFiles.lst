@@ -14,11 +14,13 @@ br\gustavoakira\dentist\entity\Client.class
 br\gustavoakira\dentist\boundary\ServiceBoundary.class
 br\gustavoakira\dentist\boundary\form\UserFormBoundary$1.class
 br\gustavoakira\dentist\db\DB.class
+br\gustavoakira\dentist\boundary\form\PhoneFormBoundary.class
 br\gustavoakira\dentist\boundary\details\AddressBoundary$1.class
 br\gustavoakira\dentist\dao\AddressDao.class
 br\gustavoakira\dentist\entity\UserType.class
 br\gustavoakira\dentist\dao\impl\PhoneDaoImpl.class
 br\gustavoakira\dentist\boundary\listener\IListener.class
+br\gustavoakira\dentist\controller\PhoneController.class
 br\gustavoakira\dentist\controller\ServiceController.class
 br\gustavoakira\dentist\boundary\form\AddressFormBoundary.class
 br\gustavoakira\dentist\boundary\MainBoundary$2.class
@@ -26,6 +28,7 @@ br\gustavoakira\dentist\boundary\LoginBoundary.class
 br\gustavoakira\dentist\dao\DaoFactory.class
 br\gustavoakira\dentist\boundary\utils\Alerts.class
 br\gustavoakira\dentist\boundary\details\PhoneBoundary.class
+br\gustavoakira\dentist\boundary\details\PhoneBoundary$1.class
 br\gustavoakira\dentist\boundary\details\AddressBoundary$2.class
 br\gustavoakira\dentist\controller\AddressController.class
 br\gustavoakira\dentist\controller\UserTypeController.class
@@ -43,6 +46,7 @@ br\gustavoakira\dentist\boundary\MainBoundary.class
 br\gustavoakira\dentist\controller\LoginController.class
 br\gustavoakira\dentist\dao\UserDao.class
 br\gustavoakira\dentist\entity\Address.class
+br\gustavoakira\dentist\boundary\details\PhoneBoundary$2.class
 br\gustavoakira\dentist\dao\impl\UserDaoImpl.class
 br\gustavoakira\dentist\controller\UserController.class
 br\gustavoakira\dentist\boundary\details\ClientDetailsView.class
