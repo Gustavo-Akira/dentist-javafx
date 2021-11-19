@@ -1,12 +1,13 @@
 package br.gustavoakira.dentist.boundary;
 
-import br.gustavoakira.dentist.boundary.form.ClientFormBoundary;
+import br.gustavoakira.dentist.boundary.form.AppointmentFormBoundary;
 import br.gustavoakira.dentist.boundary.listener.IListener;
 import br.gustavoakira.dentist.boundary.utils.Alerts;
 import br.gustavoakira.dentist.controller.AppointmentController;
 import br.gustavoakira.dentist.controller.security.LoginController;
 import br.gustavoakira.dentist.entity.Appointment;
-import br.gustavoakira.dentist.entity.Client;
+import br.gustavoakira.dentist.entity.Services;
+import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.property.SimpleLongProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -15,10 +16,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -45,6 +43,12 @@ public class AppointmentBoundary implements Initializable, IListener {
     private TableColumn<Appointment, String> client;
 
     @FXML
+    private TableColumn<Appointment, Appointment> edit;
+
+    @FXML
+    private TableColumn<Appointment, Appointment> delete;
+
+    @FXML
     private Button addButton;
 
     private final AppointmentController controller = new AppointmentController();
@@ -64,9 +68,55 @@ public class AppointmentBoundary implements Initializable, IListener {
         start.setCellValueFactory(x->new SimpleObjectProperty<>(x.getValue().getStartDate()));
         end.setCellValueFactory(x->new SimpleObjectProperty<>(x.getValue().getEndDate()));
         client.setCellValueFactory(x->new SimpleStringProperty(x.getValue().getClient().getName()));
+        startEditButton();
+        startDeleteButton();
     }
 
+    private void startEditButton(){
+        edit.setCellValueFactory(x -> new ReadOnlyObjectWrapper<>(x.getValue()));
+        edit.setCellFactory(x->new TableCell<Appointment, Appointment>(){
+            private final Button button = new Button("edit");
 
+            @Override
+            protected void updateItem(Appointment item, boolean empty) {
+                super.updateItem(item, empty);
+
+                if(item == null){
+                    setGraphic(null);
+                    return;
+                }
+                setGraphic(button);
+                button.setOnMouseClicked(x->{
+                    createModal(item,(Stage) ((Node)x.getSource()).getScene().getWindow());
+                });
+            }
+
+
+        });
+    }
+
+    private void startDeleteButton(){
+        delete.setCellValueFactory(x -> new ReadOnlyObjectWrapper<>(x.getValue()));
+        delete.setCellFactory(x->new TableCell<Appointment,Appointment>(){
+            private final Button button = new Button("delete");
+
+            @Override
+            protected void updateItem(Appointment item, boolean empty) {
+                super.updateItem(item, empty);
+
+                if(item == null){
+                    setGraphic(null);
+                    return;
+                }
+                setGraphic(button);
+
+                button.setOnMouseClicked(x->{
+                    controller.delete(item);
+                    updateData();
+                });
+            }
+        });
+    }
     @Override
     public void updateData() {
         appointmentTableView.setItems(controller.getAppointments(LoginController.getLogged().getId()));
@@ -78,6 +128,12 @@ public class AppointmentBoundary implements Initializable, IListener {
             Stage stage = new Stage();
             stage.setScene(new Scene(pane));
             stage.setTitle("Appointment form");
+            AppointmentFormBoundary appointmentFormBoundary = loader.getController();
+            appointmentFormBoundary.setAppointment(appointment);
+            if(appointment != null){
+                appointmentFormBoundary.updateForm();
+            }
+            appointmentFormBoundary.setListener(this);
             stage.setResizable(false);
             stage.initOwner(parent);
             stage.initModality(Modality.WINDOW_MODAL);

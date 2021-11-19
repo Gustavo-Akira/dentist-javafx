@@ -25,7 +25,7 @@ public class AppointmentDaoImpl implements AppointmentDao {
         PreparedStatement statement = null;
         ResultSet set = null;
         try {
-            statement = connection.prepareStatement("SELECT * FROM appointments WHERE UserId=?");
+            statement = connection.prepareStatement("SELECT * FROM appointments WHERE UserId=? AND time_start>=GETDATE() AND time_end>=GETDATE() ORDER BY time_start");
             statement.setLong(1,id);
             set = statement.executeQuery();
             List<Appointment> appointments = new ArrayList<>();
@@ -37,7 +37,6 @@ public class AppointmentDaoImpl implements AppointmentDao {
                 appointment.setId(set.getLong("Id"));
                 appointments.add(appointment);
             }
-            System.out.println(appointments);
             return appointments;
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -83,11 +82,10 @@ public class AppointmentDaoImpl implements AppointmentDao {
     public void update(Long id, Appointment appointment) {
         PreparedStatement statement = null;
         try{
-            statement = connection.prepareStatement("UPDATE appointments SET time_start=? time_end=? WHERE ClientId=? AND UserId=?");
+            statement = connection.prepareStatement("UPDATE appointments SET time_start=?, time_end=? WHERE Id=?");
             statement.setTimestamp(1, Timestamp.valueOf(appointment.getStartDate()));
             statement.setTimestamp(2,Timestamp.valueOf(appointment.getEndDate()));
-            statement.setLong(3,appointment.getClient().getId());
-            statement.setLong(4, LoginController.getLogged().getId());
+            statement.setLong(3,appointment.getId());
             statement.executeUpdate();
         }catch (SQLException e){
             e.printStackTrace();

@@ -1,5 +1,6 @@
 package br.gustavoakira.dentist.boundary.form;
 
+import br.gustavoakira.dentist.boundary.listener.IListener;
 import br.gustavoakira.dentist.boundary.utils.DateTimePicker;
 import br.gustavoakira.dentist.controller.AppointmentController;
 import br.gustavoakira.dentist.controller.ClientController;
@@ -13,14 +14,17 @@ import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import javafx.util.Callback;
+import lombok.Setter;
 
 import java.net.URL;
 import java.time.LocalDateTime;
 import java.util.ResourceBundle;
-
+@Setter
 public class AppointmentFormBoundary implements Initializable {
 
-    Appointment appointment = new Appointment();
+    private Appointment appointment = new Appointment();
+
+    private IListener listener;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -39,9 +43,11 @@ public class AppointmentFormBoundary implements Initializable {
             }else{
                 appointmentController.update(appointment);
             }
+            sendNotification();
             ((Stage) ((Node)x.getSource()).getScene().getWindow()).close();
         });
         cancelButton.setOnMouseClicked(x->{
+            sendNotification();
             ((Stage) ((Node)x.getSource()).getScene().getWindow()).close();
         });
     }
@@ -73,6 +79,17 @@ public class AppointmentFormBoundary implements Initializable {
         clientComboBox.setItems(controller.getClients(LoginController.getLogged()));
     }
 
+    public void updateForm(){
+        id.setText(this.appointment.getId().toString());
+        startDate.setDateTimeValue(appointment.getStartDate());
+        endDate.setDateTimeValue(appointment.getEndDate());
+        clientComboBox.setValue(appointment.getClient());
+    }
+
+    public void sendNotification(){
+        this.listener.updateData();
+    }
+
     private void settingComboBox() {
         Callback<ListView<Client>, ListCell<Client>> factory = lv -> new ListCell<Client>() {
             @Override
@@ -84,4 +101,5 @@ public class AppointmentFormBoundary implements Initializable {
         clientComboBox.setCellFactory(factory);
         clientComboBox.setButtonCell(factory.call(null));
     }
+
 }
