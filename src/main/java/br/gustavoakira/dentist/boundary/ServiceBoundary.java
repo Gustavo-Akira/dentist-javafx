@@ -1,13 +1,11 @@
 package br.gustavoakira.dentist.boundary;
 
 import br.gustavoakira.dentist.boundary.form.ServiceFormBoundary;
-import br.gustavoakira.dentist.boundary.form.UserFormBoundary;
 import br.gustavoakira.dentist.boundary.listener.IListener;
 import br.gustavoakira.dentist.boundary.utils.Alerts;
-import br.gustavoakira.dentist.controller.LoginController;
+import br.gustavoakira.dentist.controller.security.LoginController;
 import br.gustavoakira.dentist.controller.ServiceController;
 import br.gustavoakira.dentist.entity.Services;
-import br.gustavoakira.dentist.entity.User;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleLongProperty;

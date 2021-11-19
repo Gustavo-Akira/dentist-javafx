@@ -1,10 +1,9 @@
 package br.gustavoakira.dentist.boundary;
 
-import br.gustavoakira.dentist.db.DB;
+import br.gustavoakira.dentist.controller.security.LoginController;
 import br.gustavoakira.dentist.entity.User;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -31,13 +30,16 @@ public class MainBoundary implements Initializable {
     @FXML
     private BorderPane borderPane;
 
-    private ObservableList<String> list = FXCollections.observableArrayList(
-            "Usuarios","Serviços","Clients");
+    private ObservableList<String> list = LoginController.getAuthorizations();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         createListView();
-        changeEntity("usuarios");
+        if(LoginController.getAuthorizations().contains("Usuarios")) {
+            changeEntity("usuarios");
+        }else{
+            changeEntity("clients");
+        }
     }
 
     private void createListView(){
@@ -52,8 +54,14 @@ public class MainBoundary implements Initializable {
         listView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                if(newValue == "Serviços"){
+                if(newValue.equals("Serviços")){
                     newValue = "servicos";
+                }
+                if(newValue.equals("Clientes")){
+                    newValue = "clients";
+                }
+                if(newValue.equals("Appontamentos")){
+                    newValue = "appointments";
                 }
                 changeEntity(newValue);
             }

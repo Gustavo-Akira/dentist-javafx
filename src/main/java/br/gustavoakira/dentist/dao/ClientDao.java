@@ -9,4 +9,5 @@ public interface ClientDao {
     void update(Long id, Client client);
     void delete(Long id);
     List<Client> getAll(Long id);
+    Client getOne(Long id);
 }

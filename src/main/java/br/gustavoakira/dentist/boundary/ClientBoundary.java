@@ -5,7 +5,7 @@ import br.gustavoakira.dentist.boundary.form.ClientFormBoundary;
 import br.gustavoakira.dentist.boundary.listener.IListener;
 import br.gustavoakira.dentist.boundary.utils.Alerts;
 import br.gustavoakira.dentist.controller.ClientController;
-import br.gustavoakira.dentist.controller.LoginController;
+import br.gustavoakira.dentist.controller.security.LoginController;
 import br.gustavoakira.dentist.entity.Client;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.property.SimpleLongProperty;

@@ -1,6 +1,6 @@
 package br.gustavoakira.dentist.dao.impl;
 
-import br.gustavoakira.dentist.controller.LoginController;
+import br.gustavoakira.dentist.controller.security.LoginController;
 import br.gustavoakira.dentist.dao.ClientDao;
 import br.gustavoakira.dentist.dao.UserDao;
 import br.gustavoakira.dentist.db.DB;
@@ -82,6 +82,30 @@ public class ClientDaoImpl implements ClientDao {
                 clients.add(client);
             }
             return clients;
+        }catch (SQLException e){
+            e.printStackTrace();
+        }finally {
+            DB.closeStatement(statement);
+            DB.closeResultSet(set);
+        }
+        return null;
+    }
+
+    @Override
+    public Client getOne(Long id) {
+        PreparedStatement statement = null;
+        ResultSet set = null;
+        try {
+            statement = connection.prepareStatement("SELECT * FROM clients WHERE Id=?");
+            statement.setLong(1,id);
+            set = statement.executeQuery();
+            if(set.next()){
+                Client client = new Client();
+                client.setId(set.getLong("Id"));
+                client.setName(set.getString("Name"));
+                client.setUser(dao.getOne(id));
+                return client;
+            }
         }catch (SQLException e){
             e.printStackTrace();
         }finally {

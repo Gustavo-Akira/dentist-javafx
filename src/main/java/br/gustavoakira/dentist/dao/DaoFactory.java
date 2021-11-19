@@ -25,4 +25,6 @@ public class DaoFactory {
     public static PhoneDao createPhoneDao(){
         return new PhoneDaoImpl(DB.getConnection());
     }
+
+    public static AppointmentDao createAppointmentDao(){return new AppointmentDaoImpl(DB.getConnection(),createClientDao());};
 }
