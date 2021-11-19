@@ -24,6 +24,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class AppointmentBoundary implements Initializable, IListener {
@@ -65,8 +67,10 @@ public class AppointmentBoundary implements Initializable, IListener {
 
     private void createTable(){
         id.setCellValueFactory(x->new SimpleLongProperty(x.getValue().getId()).asObject());
-        start.setCellValueFactory(x->new SimpleObjectProperty<>(x.getValue().getStartDate()));
-        end.setCellValueFactory(x->new SimpleObjectProperty<>(x.getValue().getEndDate()));
+        start.setCellValueFactory(x->new SimpleObjectProperty(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss",
+                Locale.GERMANY).format(x.getValue().getStartDate())));
+        end.setCellValueFactory(x->new SimpleObjectProperty(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss",
+                Locale.GERMANY).format(x.getValue().getEndDate())));
         client.setCellValueFactory(x->new SimpleStringProperty(x.getValue().getClient().getName()));
         startEditButton();
         startDeleteButton();

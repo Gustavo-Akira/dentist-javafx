@@ -77,12 +77,14 @@ public class UserDaoImpl implements UserDao {
     public void update(Long id, User user) {
         String sql = "UPDATE users SET Name=?, Email=?, Password=? WHERE Id=?";
         PreparedStatement statement = null;
+        System.out.println(user);
         try{
             statement = connection.prepareStatement(sql);
             statement.setString(1, user.getName());
             statement.setString(2,user.getEmail());
             statement.setString(3, user.getPassword());
             statement.setLong(4,user.getId());
+            statement.executeUpdate();
         }catch (SQLException e){
             e.printStackTrace();
         }finally {

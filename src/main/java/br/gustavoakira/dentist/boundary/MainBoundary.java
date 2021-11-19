@@ -38,7 +38,7 @@ public class MainBoundary implements Initializable {
         if(LoginController.getAuthorizations().contains("Usuarios")) {
             changeEntity("usuarios");
         }else{
-            changeEntity("clients");
+            changeEntity("appointments");
         }
     }
 
@@ -62,6 +62,9 @@ public class MainBoundary implements Initializable {
                 }
                 if(newValue.equals("Appontamentos")){
                     newValue = "appointments";
+                }
+                if(newValue.equals("Perfil")){
+                    newValue="profile";
                 }
                 changeEntity(newValue);
             }

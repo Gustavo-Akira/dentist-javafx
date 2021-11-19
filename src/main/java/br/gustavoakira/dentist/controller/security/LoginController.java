@@ -34,11 +34,8 @@ public class LoginController {
             case "admin":
                 authorizations.add("Usuarios");
                 break;
-            case "secretary":
-                authorizations.add("Appontamentos");
-                authorizations.add("Clientes");
-                break;
         }
+        authorizations.add("Perfil");
         return FXCollections.observableArrayList(authorizations);
     }
 }
