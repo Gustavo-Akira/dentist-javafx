@@ -36,6 +36,7 @@ public class LoginController {
                 break;
         }
         authorizations.add("Perfil");
+        authorizations.add("Sair");
         return FXCollections.observableArrayList(authorizations);
     }
 }

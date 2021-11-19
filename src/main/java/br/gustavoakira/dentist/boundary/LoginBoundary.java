@@ -54,7 +54,6 @@ public class LoginBoundary implements Initializable {
                 FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("main.fxml"));
                 Parent parent = loader.load();
                 MainBoundary boundary = loader.getController();
-                boundary.setUser(logged);
                 Scene scene = new Scene(parent, 500, 500);
                 Stage stage = new Stage();
                 stage.setScene(scene);

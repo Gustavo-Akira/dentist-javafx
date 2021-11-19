@@ -18,6 +18,7 @@ public class App extends Application {
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("login.fxml"));
             AnchorPane parent = loader.load();
             mainScene = new Scene(parent);
+            stage.setResizable(false);
             stage.setScene(mainScene);
             stage.setTitle("Dentist");
             stage.show();

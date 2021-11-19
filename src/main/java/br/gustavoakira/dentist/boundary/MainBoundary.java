@@ -8,11 +8,14 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.cell.ChoiceBoxListCell;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 
 import java.io.IOException;
@@ -22,7 +25,6 @@ import java.util.ResourceBundle;
 
 public class MainBoundary implements Initializable {
 
-    private User user;
 
     @FXML
     private ListView<String> listView;
@@ -66,6 +68,21 @@ public class MainBoundary implements Initializable {
                 if(newValue.equals("Perfil")){
                     newValue="profile";
                 }
+                if(newValue.equals("Sair")){
+                    try {
+                        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("login.fxml"));
+                        Parent parent = loader.load();
+                        Scene scene = new Scene(parent);
+                        Stage stage = new Stage();
+                        stage.setResizable(false);
+                        stage.setScene(scene);
+                        stage.show();
+                        Stage thisStage = (Stage) borderPane.getScene().getWindow();
+                        thisStage.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
                 changeEntity(newValue);
             }
         });
@@ -81,7 +98,4 @@ public class MainBoundary implements Initializable {
         }
     }
 
-    public void setUser(User user) {
-        this.user = user;
-    }
 }

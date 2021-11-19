@@ -9,9 +9,3 @@
 .table-cell .label{
     -fx-font-size: 20px
 }
-
-.button{
-    -fx-border-width: 0px;
-    -fx-border-color: #666
-    -fx-background-color: 'purple'
-}
