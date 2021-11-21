@@ -1,4 +1,3 @@
-br\gustavoakira\dentist\boundary\utils\DateTimePicker$1.class
 br\gustavoakira\dentist\boundary\form\ClientFormBoundary.class
 br\gustavoakira\dentist\db\exception\DbException.class
 br\gustavoakira\dentist\boundary\UserBoundary$2.class
@@ -16,7 +15,6 @@ br\gustavoakira\dentist\boundary\ServiceBoundary.class
 br\gustavoakira\dentist\boundary\form\UserFormBoundary$1.class
 br\gustavoakira\dentist\db\DB.class
 br\gustavoakira\dentist\boundary\form\PhoneFormBoundary.class
-br\gustavoakira\dentist\boundary\utils\DateTimePicker.class
 br\gustavoakira\dentist\boundary\details\AddressBoundary$1.class
 br\gustavoakira\dentist\dao\AddressDao.class
 br\gustavoakira\dentist\entity\UserType.class
@@ -48,8 +46,8 @@ br\gustavoakira\dentist\controller\ClientController.class
 br\gustavoakira\dentist\dao\impl\UserTypeDaoImpl.class
 br\gustavoakira\dentist\entity\User.class
 br\gustavoakira\dentist\boundary\ClientBoundary$3.class
+br\gustavoakira\dentist\boundary\utils\TimeField.class
 br\gustavoakira\dentist\boundary\form\ServiceFormBoundary.class
-br\gustavoakira\dentist\boundary\utils\DateTimePicker$InternalConverter.class
 br\gustavoakira\dentist\dao\AppointmentDao.class
 br\gustavoakira\dentist\dao\ClientDao.class
 br\gustavoakira\dentist\boundary\MainBoundary.class

@@ -12,8 +12,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-
-<?import br.gustavoakira.dentist.boundary.utils.DateTimePicker?>
+<?import br.gustavoakira.dentist.boundary.utils.TimeField?>
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.gustavoakira.dentist.boundary.form.AppointmentFormBoundary">
    <children>
       <GridPane layoutX="200.0" layoutY="139.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
@@ -24,7 +23,9 @@
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
@@ -39,26 +40,38 @@
                   <Insets right="20.0" />
                </GridPane.margin>
             </Label>
-            <Label prefHeight="18.0" prefWidth="26.0" text="Fim" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+            <Label prefHeight="18.0" prefWidth="26.0" text="Fim" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets right="20.0" />
                </GridPane.margin>
             </Label>
-            <Label text="Cliente" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+            <Label text="Cliente" GridPane.halignment="RIGHT" GridPane.rowIndex="5">
                <GridPane.margin>
                   <Insets right="20.0" />
                </GridPane.margin>
             </Label>
-            <DateTimePicker fx:id="startDate" prefHeight="26.0" prefWidth="234.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <DateTimePicker fx:id="endDate" prefHeight="26.0" prefWidth="235.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <DatePicker fx:id="startDate" prefHeight="26.0" prefWidth="234.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <DatePicker fx:id="endDate" prefHeight="26.0" prefWidth="235.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <TextField fx:id="id" maxWidth="-Infinity" prefHeight="26.0" prefWidth="236.0" GridPane.columnIndex="1" />
-            <ComboBox fx:id="clientComboBox" prefHeight="26.0" prefWidth="234.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <ButtonBar maxWidth="-Infinity" prefHeight="72.0" prefWidth="128.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <ComboBox fx:id="clientComboBox" prefHeight="26.0" prefWidth="234.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <ButtonBar maxWidth="-Infinity" prefHeight="72.0" prefWidth="128.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
               <buttons>
                 <Button fx:id="addButton" mnemonicParsing="false" text="Add" />
                   <Button fx:id="cancelButton" mnemonicParsing="false" text="Cancel" />
               </buttons>
             </ButtonBar>
+            <Label text="Hora de inicio" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets right="20.0" />
+               </GridPane.margin>
+            </Label>
+            <TimeField fx:id="startTime" maxWidth="-Infinity" prefHeight="26.0" prefWidth="236.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label text="Hora de termino" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
+               <GridPane.margin>
+                  <Insets right="20.0" />
+               </GridPane.margin>
+            </Label>
+            <TimeField fx:id="endTime" maxWidth="-Infinity" prefHeight="26.0" prefWidth="236.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
          </children>
       </GridPane>
    </children>

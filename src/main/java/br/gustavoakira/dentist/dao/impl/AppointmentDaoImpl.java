@@ -25,7 +25,7 @@ public class AppointmentDaoImpl implements AppointmentDao {
         PreparedStatement statement = null;
         ResultSet set = null;
         try {
-            statement = connection.prepareStatement("SELECT * FROM appointments WHERE UserId=? AND time_start>=GETDATE() AND time_end>=GETDATE() ORDER BY time_start");
+            statement = connection.prepareStatement("SELECT * FROM appointments WHERE UserId=? ORDER BY time_start");
             statement.setLong(1,id);
             set = statement.executeQuery();
             List<Appointment> appointments = new ArrayList<>();

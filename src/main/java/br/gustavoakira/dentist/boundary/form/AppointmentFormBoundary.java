@@ -1,13 +1,13 @@
 package br.gustavoakira.dentist.boundary.form;
 
 import br.gustavoakira.dentist.boundary.listener.IListener;
-import br.gustavoakira.dentist.boundary.utils.DateTimePicker;
+import br.gustavoakira.dentist.boundary.utils.Alerts;
+import br.gustavoakira.dentist.boundary.utils.TimeField;
 import br.gustavoakira.dentist.controller.AppointmentController;
 import br.gustavoakira.dentist.controller.ClientController;
 import br.gustavoakira.dentist.controller.security.LoginController;
 import br.gustavoakira.dentist.entity.Appointment;
 import br.gustavoakira.dentist.entity.Client;
-import br.gustavoakira.dentist.entity.UserType;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -18,6 +18,7 @@ import lombok.Setter;
 
 import java.net.URL;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ResourceBundle;
 @Setter
 public class AppointmentFormBoundary implements Initializable {
@@ -30,12 +31,16 @@ public class AppointmentFormBoundary implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         createComboBox();
         addButton.setOnMouseClicked(x->{
+            if(!validateDateTime()){
+                Alerts.showAlert("Error of consistency","Data ou hora","Por favor coloque uma data ou hora de termino apos o horario de inicio", Alert.AlertType.ERROR);
+                return;
+            }
             Appointment appointment = new Appointment();
             if(!id.getText().isEmpty()){
                 appointment.setId(Long.parseLong(id.getText()));
             }
-            appointment.setStartDate(startDate.dateTimeValueProperty().getValue());
-            appointment.setEndDate(endDate.dateTimeValueProperty().getValue());
+            appointment.setStartDate(LocalDateTime.of(startDate.getValue(), LocalTime.parse(startTime.getText())));
+            appointment.setEndDate(LocalDateTime.of(endDate.getValue(), LocalTime.parse(endTime.getText())));
             appointment.setClient(clientComboBox.getValue());
             appointment.setUser(LoginController.getLogged());
             if(appointment.getId() == null){
@@ -56,10 +61,16 @@ public class AppointmentFormBoundary implements Initializable {
     private TextField id;
 
     @FXML
-    private DateTimePicker startDate;
+    private DatePicker startDate;
 
     @FXML
-    private DateTimePicker endDate;
+    private DatePicker endDate;
+
+    @FXML
+    private TimeField startTime;
+
+    @FXML
+    private TimeField endTime;
 
     @FXML
     private ComboBox<Client> clientComboBox;
@@ -81,8 +92,10 @@ public class AppointmentFormBoundary implements Initializable {
 
     public void updateForm(){
         id.setText(this.appointment.getId().toString());
-        startDate.setDateTimeValue(appointment.getStartDate());
-        endDate.setDateTimeValue(appointment.getEndDate());
+        startDate.setValue(appointment.getStartDate().toLocalDate());
+        startTime.setText(appointment.getStartDate().toLocalTime().toString());
+        endDate.setValue(appointment.getEndDate().toLocalDate());
+        endTime.setText(appointment.getEndDate().toLocalTime().toString());
         clientComboBox.setValue(appointment.getClient());
     }
 
@@ -102,4 +115,18 @@ public class AppointmentFormBoundary implements Initializable {
         clientComboBox.setButtonCell(factory.call(null));
     }
 
+    private boolean validateDateTime(){
+        if(endDate.getValue().isAfter(startDate.getValue()) || endDate.getValue().isEqual(startDate.getValue())){
+            if(endDate.getValue().isEqual(startDate.getValue())){
+                if(LocalTime.parse(startTime.getText()).isBefore(LocalTime.parse(endTime.getText()))){
+                    return true;
+                }else {
+                    return false;
+                }
+            }else{
+                return true;
+            }
+        }
+        return false;
+    }
 }
