@@ -6,7 +6,6 @@ import br.gustavoakira.dentist.boundary.utils.Alerts;
 import br.gustavoakira.dentist.controller.AppointmentController;
 import br.gustavoakira.dentist.controller.security.LoginController;
 import br.gustavoakira.dentist.entity.Appointment;
-import br.gustavoakira.dentist.entity.Services;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.property.SimpleLongProperty;
 import javafx.beans.property.SimpleObjectProperty;
