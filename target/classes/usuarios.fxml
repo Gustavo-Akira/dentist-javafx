@@ -13,9 +13,9 @@
       <TableView fx:id="userTableView" prefHeight="200.0" prefWidth="200.0">
         <columns>
           <TableColumn fx:id="idCol" prefWidth="75.0" text="Id" />
-          <TableColumn fx:id="nameCol" prefWidth="75.0" text="Name" />
+          <TableColumn fx:id="nameCol" prefWidth="75.0" text="Nome" />
             <TableColumn fx:id="emailCol" prefWidth="75.0" text="Email" />
-            <TableColumn fx:id="type" prefWidth="75.0" text="Type" />
+            <TableColumn fx:id="type" prefWidth="75.0" text="Tipo" />
             <TableColumn fx:id="editCol" prefWidth="75.0" text="Edit" />
             <TableColumn fx:id="deleteCol" prefWidth="75.0" text="Delete" />
         </columns>
