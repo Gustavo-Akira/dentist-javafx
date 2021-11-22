@@ -9,3 +9,8 @@
 .table-cell .label{
     -fx-font-size: 20px
 }
+
+.table-view{
+    -fx-width: 80%;
+    -fx-height: 80%;
+}

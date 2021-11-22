@@ -10,6 +10,8 @@ import br.gustavoakira.dentist.entity.Client;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.property.SimpleLongProperty;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -47,16 +49,25 @@ public class ClientBoundary implements Initializable, IListener {
     @FXML
     private Button addButton;
 
+    @FXML
+    private TextField filter;
+
     private ClientController controller = new ClientController();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         updateData();
+        filter.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                clientTableView.setItems(controller.getClients(LoginController.getLogged(),filter.getText()));
+            }
+        });
     }
 
     private void createTable(){
         configTable();
-        clientTableView.setItems(controller.getClients(LoginController.getLogged()));
+        clientTableView.setItems(controller.getClients(LoginController.getLogged(),""));
         addButton.setOnMouseClicked(x->{
             createModal(null,(Stage) ((Node)x.getSource()).getScene().getWindow());
         });

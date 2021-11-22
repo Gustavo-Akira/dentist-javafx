@@ -6,10 +6,10 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="400.0" prefWidth="600.0" stylesheets="@css/table.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.gustavoakira.dentist.boundary.ServiceBoundary">
-    <Label text="Serviços" styleClass="title"/>
+<VBox prefHeight="400.0" prefWidth="600.0" stylesheets="@css/table.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.gustavoakira.dentist.boundary.ServiceBoundary" >
+    <Label styleClass="title" text="Serviços" />
    <Button fx:id="addButton" mnemonicParsing="false" text="Add" />
-   <TableView fx:id="servicesTableView" prefHeight="200.0" prefWidth="200.0">
+   <TableView fx:id="servicesTableView" prefWidth="200.0" VBox.vgrow="ALWAYS">
      <columns>
        <TableColumn fx:id="id" prefWidth="75.0" text="Id" />
        <TableColumn fx:id="name" prefWidth="75.0" text="Nome" />

@@ -87,7 +87,7 @@ public class AppointmentFormBoundary implements Initializable {
 
     private void createComboBox(){
         settingComboBox();
-        clientComboBox.setItems(controller.getClients(LoginController.getLogged()));
+        clientComboBox.setItems(controller.getClients(LoginController.getLogged(),""));
     }
 
     public void updateForm(){

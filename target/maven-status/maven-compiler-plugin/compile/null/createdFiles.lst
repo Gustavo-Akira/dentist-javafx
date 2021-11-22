@@ -17,6 +17,7 @@ br\gustavoakira\dentist\db\DB.class
 br\gustavoakira\dentist\boundary\form\PhoneFormBoundary.class
 br\gustavoakira\dentist\boundary\details\AddressBoundary$1.class
 br\gustavoakira\dentist\dao\AddressDao.class
+br\gustavoakira\dentist\controller\security\SecurityUtil.class
 br\gustavoakira\dentist\entity\UserType.class
 br\gustavoakira\dentist\boundary\form\AppointmentFormBoundary.class
 br\gustavoakira\dentist\dao\impl\PhoneDaoImpl.class
@@ -63,6 +64,7 @@ br\gustavoakira\dentist\dao\impl\ServiceDaoImpl.class
 br\gustavoakira\dentist\boundary\ClientBoundary$1.class
 br\gustavoakira\dentist\boundary\UserBoundary$1.class
 br\gustavoakira\dentist\boundary\form\UserFormBoundary.class
+br\gustavoakira\dentist\boundary\ClientBoundary$4.class
 br\gustavoakira\dentist\dao\impl\ClientDaoImpl.class
 br\gustavoakira\dentist\entity\Phone.class
 br\gustavoakira\dentist\App.class

@@ -16,8 +16,8 @@ public class ClientController {
 
     private final PhoneDao phoneDao = DaoFactory.createPhoneDao();
 
-    public ObservableList<Client> getClients(User user){
-        return FXCollections.observableList(dao.getAll(user.getId()));
+    public ObservableList<Client> getClients(User user, String name){
+        return FXCollections.observableList(dao.getAll(user.getId(),name));
     }
 
     public void insert(Client client){

@@ -8,6 +8,6 @@ public interface ClientDao {
     void insert(Client client);
     void update(Long id, Client client);
     void delete(Long id);
-    List<Client> getAll(Long id);
+    List<Client> getAll(Long id, String name);
     Client getOne(Long id);
 }

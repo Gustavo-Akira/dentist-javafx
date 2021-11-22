@@ -12,6 +12,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -53,7 +55,6 @@ public class LoginBoundary implements Initializable {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("main.fxml"));
                 Parent parent = loader.load();
-                MainBoundary boundary = loader.getController();
                 Scene scene = new Scene(parent, 500, 500);
                 Stage stage = new Stage();
                 stage.setScene(scene);

@@ -10,13 +10,13 @@
 
 <VBox prefHeight="400.0" prefWidth="600.0" stylesheets="@css/table.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.gustavoakira.dentist.boundary.AppointmentBoundary">
    <children>
-      <Label layoutX="48.0" styleClass="title" layoutY="41.0" text="Apontamentos" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+      <Label layoutX="48.0" layoutY="41.0" styleClass="title" text="Apontamentos" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
          <font>
             <Font size="40.0" />
          </font>
       </Label>
       <Button fx:id="addButton" layoutX="20.0" layoutY="78.0" mnemonicParsing="false" text="Add" AnchorPane.topAnchor="85.0" />
-      <TableView fx:id="appointmentTableView" layoutX="182.0" layoutY="128.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="128.0">
+      <TableView fx:id="appointmentTableView" layoutX="182.0" layoutY="128.0" maxHeight="1.7976931348623157E308" prefWidth="200.0" VBox.vgrow="ALWAYS">
         <columns>
           <TableColumn fx:id="id" prefWidth="75.0" text="Id" />
           <TableColumn fx:id="start" prefWidth="75.0" text="Inicio" />

@@ -1,5 +1,6 @@
 package br.gustavoakira.dentist.dao.impl;
 
+import br.gustavoakira.dentist.controller.security.SecurityUtil;
 import br.gustavoakira.dentist.dao.UserDao;
 import br.gustavoakira.dentist.dao.UserTypeDao;
 import br.gustavoakira.dentist.db.DB;
@@ -32,9 +33,8 @@ public class UserDaoImpl implements UserDao {
         PreparedStatement statement = null;
         ResultSet resultSet = null;
         try {
-            statement = connection.prepareStatement("SELECT * FROM users WHERE Email = ? AND Password = ?");
+            statement = connection.prepareStatement("SELECT * FROM users WHERE Email = ?");
             statement.setString(1,email);
-            statement.setString(2,password);
             resultSet = statement.executeQuery();
             if (resultSet.next()) {
                 User obj = new User();
@@ -43,7 +43,9 @@ public class UserDaoImpl implements UserDao {
                 obj.setEmail(resultSet.getString("Email"));
                 obj.setType(typeDao.getType(resultSet.getLong("UserTypeId")));
                 obj.setPassword(resultSet.getString("Password"));
-                return obj;
+                if(SecurityUtil.checkPassword(obj.getPassword(),password)) {
+                    return obj;
+                }
             }
             return null;
         } catch (SQLException e) {

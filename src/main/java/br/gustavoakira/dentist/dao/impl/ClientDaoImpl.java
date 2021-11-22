@@ -66,12 +66,13 @@ public class ClientDaoImpl implements ClientDao {
     }
 
     @Override
-    public List<Client> getAll(Long id) {
+    public List<Client> getAll(Long id, String name) {
         PreparedStatement statement = null;
         ResultSet set = null;
         try {
-            statement = connection.prepareStatement("SELECT * FROM clients WHERE UserId=?");
+            statement = connection.prepareStatement("SELECT * FROM clients WHERE UserId=? AND Name LIKE ?");
             statement.setLong(1,id);
+            statement.setString(2,"%" + name + "%");
             set = statement.executeQuery();
             List<Client> clients = new ArrayList<>();
             while (set.next()){
