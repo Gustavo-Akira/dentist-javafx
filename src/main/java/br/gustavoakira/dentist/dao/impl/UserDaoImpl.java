@@ -6,7 +6,6 @@ import br.gustavoakira.dentist.dao.UserTypeDao;
 import br.gustavoakira.dentist.db.DB;
 import br.gustavoakira.dentist.db.exception.DbException;
 import br.gustavoakira.dentist.entity.User;
-import br.gustavoakira.dentist.entity.UserType;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -77,15 +76,24 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public void update(Long id, User user) {
-        String sql = "UPDATE users SET Name=?, Email=?, Password=? WHERE Id=?";
+        String sql= "";
+        if(user.getPassword() != null) {
+             sql = "UPDATE users SET Name=?, Email=?, Password=? WHERE Id=?";
+        }else{
+            sql = "UPDATE users SET Name=?, Email=? WHERE Id=?";
+        }
         PreparedStatement statement = null;
         System.out.println(user);
         try{
             statement = connection.prepareStatement(sql);
             statement.setString(1, user.getName());
             statement.setString(2,user.getEmail());
-            statement.setString(3, user.getPassword());
-            statement.setLong(4,user.getId());
+            if(user.getPassword() != null) {
+                statement.setString(3, user.getPassword());
+                statement.setLong(4,user.getId());
+            }else {
+                statement.setLong(3, user.getId());
+            }
             statement.executeUpdate();
         }catch (SQLException e){
             e.printStackTrace();

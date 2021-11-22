@@ -28,7 +28,9 @@ public class UserController {
     }
 
     public void updateUser(User user){
-        user.setPassword(SecurityUtil.hashPassword(user.getPassword()));
+        if(user.getPassword() != null) {
+            user.setPassword(SecurityUtil.hashPassword(user.getPassword()));
+        }
         dao.update(user.getId(),user);
     }
 

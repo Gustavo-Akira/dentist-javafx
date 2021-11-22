@@ -84,10 +84,6 @@ public class UserFormBoundary implements Initializable {
             }
             if(!password.getText().isEmpty()){
                 user.setPassword(password.getText());
-            }else{
-                if(this.user != null){
-                    user.setPassword(this.user.getPassword());
-                }
             }
             if(user.getId() == null) {
                 userController.insertUser(user);

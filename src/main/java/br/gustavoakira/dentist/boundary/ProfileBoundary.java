@@ -24,12 +24,10 @@ public class ProfileBoundary implements Initializable {
         userLabel.setText(user.getEmail());
         id.setText(user.getId().toString());
         this.user.setText(user.getEmail());
-        this.password.setText(user.getPassword());
         this.name.setText(user.getName());
         this.addButton.setOnMouseClicked(x->{
             User updatedUser = new User();
             updatedUser.setId(Long.parseLong(id.getText()));
-            updatedUser.setPassword(this.password.getText());
             updatedUser.setEmail(this.user.getText());
             updatedUser.setName(name.getText());
             controller.updateUser(updatedUser);
