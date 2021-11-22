@@ -13,7 +13,7 @@
       <TableView fx:id="clientTableView" prefHeight="200.0" prefWidth="200.0">
         <columns>
           <TableColumn fx:id="id" prefWidth="75.0" text="Id" />
-          <TableColumn fx:id="name" prefWidth="75.0" text="Name" />
+          <TableColumn fx:id="name" prefWidth="75.0" text="Nome" />
             <TableColumn fx:id="viewMore" prefWidth="75.0" text="View" />
             <TableColumn fx:id="edit" prefWidth="75.0" text="Edit" />
             <TableColumn fx:id="delete" prefWidth="75.0" text="Delete" />

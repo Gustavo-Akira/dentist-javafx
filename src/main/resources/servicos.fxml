@@ -12,8 +12,8 @@
    <TableView fx:id="servicesTableView" prefHeight="200.0" prefWidth="200.0">
      <columns>
        <TableColumn fx:id="id" prefWidth="75.0" text="Id" />
-       <TableColumn fx:id="name" prefWidth="75.0" text="Name" />
-         <TableColumn fx:id="price" prefWidth="75.0" text="Price" />
+       <TableColumn fx:id="name" prefWidth="75.0" text="Nome" />
+         <TableColumn fx:id="price" prefWidth="75.0" text="Preço" />
          <TableColumn fx:id="edit" prefWidth="75.0" text="Edit" />
          <TableColumn fx:id="delete" prefWidth="75.0" text="Delete" />
      </columns>

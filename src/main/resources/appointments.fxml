@@ -21,7 +21,7 @@
           <TableColumn fx:id="id" prefWidth="75.0" text="Id" />
           <TableColumn fx:id="start" prefWidth="75.0" text="Inicio" />
             <TableColumn fx:id="end" prefWidth="75.0" text="Fim" />
-            <TableColumn fx:id="client" prefWidth="75.0" text="Client" />
+            <TableColumn fx:id="client" prefWidth="75.0" text="Cliente" />
             <TableColumn fx:id="edit" prefWidth="75.0" text="Edit" />
             <TableColumn fx:id="delete" prefWidth="75.0" text="Delete" />
         </columns>
