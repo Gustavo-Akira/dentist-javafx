@@ -82,6 +82,7 @@ public class MainBoundary implements Initializable {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
+                    return;
                 }
                 changeEntity(newValue);
             }
