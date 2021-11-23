@@ -1,8 +1,8 @@
 package br.gustavoakira.dentist.boundary.form;
 
 import br.gustavoakira.dentist.boundary.listener.IListener;
-import br.gustavoakira.dentist.controller.security.LoginController;
-import br.gustavoakira.dentist.controller.ServiceController;
+import br.gustavoakira.dentist.controller.security.LoginControl;
+import br.gustavoakira.dentist.controller.ServiceControl;
 import br.gustavoakira.dentist.entity.Services;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -37,14 +37,14 @@ public class ServiceFormBoundary implements Initializable {
 
     private List<IListener> listeners = new ArrayList<>();
 
-    private ServiceController controller = new ServiceController();
+    private ServiceControl controller = new ServiceControl();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         addButton.setOnMouseClicked(x->{
             Services services = new Services();
             services.setPrice(Double.parseDouble(price.getText()));
-            services.setUser(LoginController.getLogged());
+            services.setUser(LoginControl.getLogged());
             services.setName(name.getText());
             if(!id.getText().isEmpty()){
                 services.setId(Long.parseLong(id.getText()));

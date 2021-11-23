@@ -2,7 +2,7 @@ package br.gustavoakira.dentist.boundary;
 
 import br.gustavoakira.dentist.boundary.utils.Alerts;
 import br.gustavoakira.dentist.controller.UserController;
-import br.gustavoakira.dentist.controller.security.LoginController;
+import br.gustavoakira.dentist.controller.security.LoginControl;
 import br.gustavoakira.dentist.entity.User;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -20,7 +20,7 @@ public class ProfileBoundary implements Initializable {
         createView();
     }
     private void createView(){
-        User user = LoginController.getLogged();
+        User user = LoginControl.getLogged();
         userLabel.setText(user.getEmail());
         id.setText(user.getId().toString());
         this.user.setText(user.getEmail());

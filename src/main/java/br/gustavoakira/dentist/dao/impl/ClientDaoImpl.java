@@ -1,6 +1,6 @@
 package br.gustavoakira.dentist.dao.impl;
 
-import br.gustavoakira.dentist.controller.security.LoginController;
+import br.gustavoakira.dentist.controller.security.LoginControl;
 import br.gustavoakira.dentist.dao.ClientDao;
 import br.gustavoakira.dentist.dao.UserDao;
 import br.gustavoakira.dentist.db.DB;
@@ -27,7 +27,7 @@ public class ClientDaoImpl implements ClientDao {
         try {
             statement = connection.prepareStatement("INSERT INTO clients(Name,UserId) VALUES(?,?)");
             statement.setString(1,client.getName());
-            statement.setLong(2, LoginController.getLogged().getId());
+            statement.setLong(2, LoginControl.getLogged().getId());
             statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

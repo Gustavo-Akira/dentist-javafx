@@ -2,17 +2,13 @@ package br.gustavoakira.dentist.boundary.form;
 
 import br.gustavoakira.dentist.boundary.listener.IListener;
 import br.gustavoakira.dentist.controller.UserController;
-import br.gustavoakira.dentist.controller.UserTypeController;
-import br.gustavoakira.dentist.dao.UserTypeDao;
+import br.gustavoakira.dentist.controller.UserTypeControl;
 import br.gustavoakira.dentist.entity.User;
 import br.gustavoakira.dentist.entity.UserType;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.ChoiceBoxListCell;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
@@ -48,7 +44,7 @@ public class UserFormBoundary implements Initializable {
 
     private List<IListener> listeners = new ArrayList<>();
 
-    private UserTypeController controller = new UserTypeController();
+    private UserTypeControl controller = new UserTypeControl();
 
     private UserController userController = new UserController();
 

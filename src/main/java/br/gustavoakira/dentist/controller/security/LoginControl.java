@@ -9,7 +9,7 @@ import javafx.collections.ObservableList;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LoginController {
+public class LoginControl {
 
     private static User user;
     private UserDao dao = DaoFactory.createUserDao();

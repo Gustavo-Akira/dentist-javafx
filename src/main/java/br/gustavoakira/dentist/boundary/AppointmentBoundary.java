@@ -3,8 +3,8 @@ package br.gustavoakira.dentist.boundary;
 import br.gustavoakira.dentist.boundary.form.AppointmentFormBoundary;
 import br.gustavoakira.dentist.boundary.listener.IListener;
 import br.gustavoakira.dentist.boundary.utils.Alerts;
-import br.gustavoakira.dentist.controller.AppointmentController;
-import br.gustavoakira.dentist.controller.security.LoginController;
+import br.gustavoakira.dentist.controller.AppointmentControl;
+import br.gustavoakira.dentist.controller.security.LoginControl;
 import br.gustavoakira.dentist.entity.Appointment;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.property.SimpleLongProperty;
@@ -52,7 +52,7 @@ public class AppointmentBoundary implements Initializable, IListener {
     @FXML
     private Button addButton;
 
-    private final AppointmentController controller = new AppointmentController();
+    private final AppointmentControl controller = new AppointmentControl();
 
 
     @Override
@@ -122,7 +122,7 @@ public class AppointmentBoundary implements Initializable, IListener {
     }
     @Override
     public void updateData() {
-        appointmentTableView.setItems(controller.getAppointments(LoginController.getLogged().getId()));
+        appointmentTableView.setItems(controller.getAppointments(LoginControl.getLogged().getId()));
     }
     private void createModal(Appointment appointment, Stage parent){
         try{

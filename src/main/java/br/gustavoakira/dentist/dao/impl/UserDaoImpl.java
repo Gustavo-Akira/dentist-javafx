@@ -1,6 +1,6 @@
 package br.gustavoakira.dentist.dao.impl;
 
-import br.gustavoakira.dentist.controller.security.SecurityUtil;
+import br.gustavoakira.dentist.controller.security.SecurityControl;
 import br.gustavoakira.dentist.dao.UserDao;
 import br.gustavoakira.dentist.dao.UserTypeDao;
 import br.gustavoakira.dentist.db.DB;
@@ -42,7 +42,7 @@ public class UserDaoImpl implements UserDao {
                 obj.setEmail(resultSet.getString("Email"));
                 obj.setType(typeDao.getType(resultSet.getLong("UserTypeId")));
                 obj.setPassword(resultSet.getString("Password"));
-                if(SecurityUtil.checkPassword(obj.getPassword(),password)) {
+                if(SecurityControl.checkPassword(obj.getPassword(),password)) {
                     return obj;
                 }
             }

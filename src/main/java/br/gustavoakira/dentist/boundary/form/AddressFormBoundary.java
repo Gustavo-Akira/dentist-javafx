@@ -1,7 +1,7 @@
 package br.gustavoakira.dentist.boundary.form;
 
 import br.gustavoakira.dentist.boundary.listener.IListener;
-import br.gustavoakira.dentist.controller.AddressController;
+import br.gustavoakira.dentist.controller.AddressControl;
 import br.gustavoakira.dentist.entity.Address;
 import br.gustavoakira.dentist.entity.Client;
 import javafx.fxml.FXML;
@@ -50,7 +50,7 @@ public class AddressFormBoundary implements Initializable {
     private Button cancelButton;
 
 
-    private final AddressController addressController = new AddressController();
+    private final AddressControl addressControl = new AddressControl();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -60,9 +60,9 @@ public class AddressFormBoundary implements Initializable {
                 Client o = new Client();
                 o.setId(client);
                 address.setClient(o);
-                addressController.insert(address);
+                addressControl.insert(address);
             }else{
-                addressController.update(address);
+                addressControl.update(address);
             }
             sendNotification();
             ((Stage) ((Node)x.getSource()).getScene().getWindow()).close();

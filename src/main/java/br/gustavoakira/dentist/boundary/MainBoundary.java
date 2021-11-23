@@ -1,7 +1,6 @@
 package br.gustavoakira.dentist.boundary;
 
-import br.gustavoakira.dentist.controller.security.LoginController;
-import br.gustavoakira.dentist.entity.User;
+import br.gustavoakira.dentist.controller.security.LoginControl;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
@@ -32,12 +31,12 @@ public class MainBoundary implements Initializable {
     @FXML
     private BorderPane borderPane;
 
-    private ObservableList<String> list = LoginController.getAuthorizations();
+    private ObservableList<String> list = LoginControl.getAuthorizations();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         createListView();
-        if(LoginController.getAuthorizations().contains("Usuarios")) {
+        if(LoginControl.getAuthorizations().contains("Usuarios")) {
             changeEntity("usuarios");
         }else{
             changeEntity("appointments");

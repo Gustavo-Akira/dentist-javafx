@@ -1,11 +1,9 @@
 package br.gustavoakira.dentist.boundary.details;
 
-import br.gustavoakira.dentist.boundary.form.AddressFormBoundary;
 import br.gustavoakira.dentist.boundary.form.PhoneFormBoundary;
 import br.gustavoakira.dentist.boundary.listener.IListener;
 import br.gustavoakira.dentist.boundary.utils.Alerts;
-import br.gustavoakira.dentist.controller.PhoneController;
-import br.gustavoakira.dentist.entity.Address;
+import br.gustavoakira.dentist.controller.PhoneControl;
 import br.gustavoakira.dentist.entity.Client;
 import br.gustavoakira.dentist.entity.Phone;
 import javafx.beans.property.ReadOnlyObjectWrapper;
@@ -53,7 +51,7 @@ public class PhoneBoundary implements Initializable, IListener {
     @FXML
     private Button addButton;
 
-    private PhoneController controller = new PhoneController();
+    private PhoneControl controller = new PhoneControl();
 
 
     @Override

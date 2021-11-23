@@ -9,7 +9,7 @@ import br.gustavoakira.dentist.entity.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class ClientController {
+public class ClientControl {
     private final ClientDao dao = DaoFactory.createClientDao();
 
     private final AddressDao addressDao = DaoFactory.createAddressDao();

@@ -1,7 +1,7 @@
 package br.gustavoakira.dentist.boundary;
 
 import br.gustavoakira.dentist.boundary.utils.Alerts;
-import br.gustavoakira.dentist.controller.security.LoginController;
+import br.gustavoakira.dentist.controller.security.LoginControl;
 import br.gustavoakira.dentist.entity.User;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,8 +12,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -31,7 +29,7 @@ public class LoginBoundary implements Initializable {
     @FXML
     private Button loginButton;
 
-    private LoginController controller = new LoginController();
+    private LoginControl controller = new LoginControl();
 
 
     @Override

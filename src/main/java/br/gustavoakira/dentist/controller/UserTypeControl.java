@@ -8,7 +8,7 @@ import javafx.collections.ObservableList;
 
 import java.util.List;
 
-public class UserTypeController {
+public class UserTypeControl {
     private UserTypeDao typeDao = DaoFactory.createUserTypeDao();
 
     public ObservableList<UserType> getUserTypes(){

@@ -6,7 +6,7 @@ import br.gustavoakira.dentist.entity.Phone;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class PhoneController {
+public class PhoneControl {
     private final PhoneDao dao = DaoFactory.createPhoneDao();
 
     public void insert(Phone phone){

@@ -3,9 +3,8 @@ package br.gustavoakira.dentist.boundary.details;
 import br.gustavoakira.dentist.boundary.form.AddressFormBoundary;
 import br.gustavoakira.dentist.boundary.listener.IListener;
 import br.gustavoakira.dentist.boundary.utils.Alerts;
-import br.gustavoakira.dentist.controller.AddressController;
+import br.gustavoakira.dentist.controller.AddressControl;
 import br.gustavoakira.dentist.entity.Address;
-import br.gustavoakira.dentist.entity.Services;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.property.SimpleLongProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -27,7 +26,7 @@ public class AddressBoundary implements Initializable, IListener {
 
     private Long clientId;
 
-    private final AddressController controller = new AddressController();
+    private final AddressControl controller = new AddressControl();
 
 
     @FXML

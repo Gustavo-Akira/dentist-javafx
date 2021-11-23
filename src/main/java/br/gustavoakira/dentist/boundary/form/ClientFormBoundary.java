@@ -1,7 +1,7 @@
 package br.gustavoakira.dentist.boundary.form;
 
 import br.gustavoakira.dentist.boundary.listener.IListener;
-import br.gustavoakira.dentist.controller.ClientController;
+import br.gustavoakira.dentist.controller.ClientControl;
 import br.gustavoakira.dentist.entity.Client;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -32,7 +32,7 @@ public class ClientFormBoundary implements Initializable {
     private Client client;
 
     @FXML
-    private ClientController controller = new ClientController();
+    private ClientControl controller = new ClientControl();
 
     private List<IListener> listeners = new ArrayList<>();
 

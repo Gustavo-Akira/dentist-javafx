@@ -3,8 +3,8 @@ package br.gustavoakira.dentist.boundary;
 import br.gustavoakira.dentist.boundary.form.ServiceFormBoundary;
 import br.gustavoakira.dentist.boundary.listener.IListener;
 import br.gustavoakira.dentist.boundary.utils.Alerts;
-import br.gustavoakira.dentist.controller.security.LoginController;
-import br.gustavoakira.dentist.controller.ServiceController;
+import br.gustavoakira.dentist.controller.security.LoginControl;
+import br.gustavoakira.dentist.controller.ServiceControl;
 import br.gustavoakira.dentist.entity.Services;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.property.SimpleDoubleProperty;
@@ -46,7 +46,7 @@ public class ServiceBoundary implements Initializable, IListener {
     @FXML
     private TableColumn<Services, Services> delete;
 
-    private ServiceController controller = new ServiceController();
+    private ServiceControl controller = new ServiceControl();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -65,7 +65,7 @@ public class ServiceBoundary implements Initializable, IListener {
         createTable();
         startDeleteButton();
         startEditButton();
-        servicesTableView.setItems(controller.getServices(LoginController.getLogged()));
+        servicesTableView.setItems(controller.getServices(LoginControl.getLogged()));
     }
 
     private void createTable(){

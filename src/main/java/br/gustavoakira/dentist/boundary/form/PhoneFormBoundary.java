@@ -1,7 +1,7 @@
 package br.gustavoakira.dentist.boundary.form;
 
 import br.gustavoakira.dentist.boundary.listener.IListener;
-import br.gustavoakira.dentist.controller.PhoneController;
+import br.gustavoakira.dentist.controller.PhoneControl;
 import br.gustavoakira.dentist.entity.Client;
 import br.gustavoakira.dentist.entity.Phone;
 import javafx.fxml.FXML;
@@ -20,7 +20,7 @@ public class PhoneFormBoundary implements Initializable {
     private Client client;
     private Phone phone;
     private IListener listener;
-    private PhoneController controller = new PhoneController();
+    private PhoneControl controller = new PhoneControl();
 
     @FXML
     private TextField id;

@@ -4,8 +4,8 @@ import br.gustavoakira.dentist.boundary.details.ClientDetailsView;
 import br.gustavoakira.dentist.boundary.form.ClientFormBoundary;
 import br.gustavoakira.dentist.boundary.listener.IListener;
 import br.gustavoakira.dentist.boundary.utils.Alerts;
-import br.gustavoakira.dentist.controller.ClientController;
-import br.gustavoakira.dentist.controller.security.LoginController;
+import br.gustavoakira.dentist.controller.ClientControl;
+import br.gustavoakira.dentist.controller.security.LoginControl;
 import br.gustavoakira.dentist.entity.Client;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.property.SimpleLongProperty;
@@ -52,7 +52,7 @@ public class ClientBoundary implements Initializable, IListener {
     @FXML
     private TextField filter;
 
-    private ClientController controller = new ClientController();
+    private ClientControl controller = new ClientControl();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -60,14 +60,14 @@ public class ClientBoundary implements Initializable, IListener {
         filter.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                clientTableView.setItems(controller.getClients(LoginController.getLogged(),filter.getText()));
+                clientTableView.setItems(controller.getClients(LoginControl.getLogged(),filter.getText()));
             }
         });
     }
 
     private void createTable(){
         configTable();
-        clientTableView.setItems(controller.getClients(LoginController.getLogged(),""));
+        clientTableView.setItems(controller.getClients(LoginControl.getLogged(),""));
         addButton.setOnMouseClicked(x->{
             createModal(null,(Stage) ((Node)x.getSource()).getScene().getWindow());
         });

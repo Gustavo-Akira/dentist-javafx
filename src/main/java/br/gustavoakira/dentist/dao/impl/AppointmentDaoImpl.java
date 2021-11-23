@@ -1,6 +1,6 @@
 package br.gustavoakira.dentist.dao.impl;
 
-import br.gustavoakira.dentist.controller.security.LoginController;
+import br.gustavoakira.dentist.controller.security.LoginControl;
 import br.gustavoakira.dentist.dao.AppointmentDao;
 import br.gustavoakira.dentist.dao.ClientDao;
 import br.gustavoakira.dentist.db.DB;
@@ -55,7 +55,7 @@ public class AppointmentDaoImpl implements AppointmentDao {
             statement.setTimestamp(1, Timestamp.valueOf(appointment.getStartDate().truncatedTo(ChronoUnit.SECONDS)));
             statement.setTimestamp(2,Timestamp.valueOf(appointment.getEndDate().truncatedTo(ChronoUnit.SECONDS)));
             statement.setLong(3,appointment.getClient().getId());
-            statement.setLong(4, LoginController.getLogged().getId());
+            statement.setLong(4, LoginControl.getLogged().getId());
             statement.executeUpdate();
         }catch (SQLException e){
             e.printStackTrace();

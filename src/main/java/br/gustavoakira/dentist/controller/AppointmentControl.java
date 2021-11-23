@@ -7,7 +7,7 @@ import br.gustavoakira.dentist.entity.Appointment;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class AppointmentController {
+public class AppointmentControl {
     private final AppointmentDao dao = DaoFactory.createAppointmentDao();
 
     public ObservableList<Appointment> getAppointments(Long id){

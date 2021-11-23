@@ -7,7 +7,7 @@ import br.gustavoakira.dentist.entity.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class ServiceController {
+public class ServiceControl {
     private ServiceDao dao = DaoFactory.createServiceDao();
 
     public ObservableList<Services> getServices(User user){

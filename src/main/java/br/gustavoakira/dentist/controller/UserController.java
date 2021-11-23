@@ -1,6 +1,6 @@
 package br.gustavoakira.dentist.controller;
 
-import br.gustavoakira.dentist.controller.security.SecurityUtil;
+import br.gustavoakira.dentist.controller.security.SecurityControl;
 import br.gustavoakira.dentist.dao.DaoFactory;
 import br.gustavoakira.dentist.dao.UserDao;
 import br.gustavoakira.dentist.entity.User;
@@ -23,13 +23,13 @@ public class UserController {
     }
 
     public void insertUser(User user){
-        user.setPassword(SecurityUtil.hashPassword(user.getPassword()));
+        user.setPassword(SecurityControl.hashPassword(user.getPassword()));
         dao.insert(user);
     }
 
     public void updateUser(User user){
         if(user.getPassword() != null) {
-            user.setPassword(SecurityUtil.hashPassword(user.getPassword()));
+            user.setPassword(SecurityControl.hashPassword(user.getPassword()));
         }
         dao.update(user.getId(),user);
     }

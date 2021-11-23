@@ -10,7 +10,7 @@ import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
 import java.util.Arrays;
 
-public class SecurityUtil {
+public class SecurityControl {
 
     public static String hashPassword(String passwordHash) {
         String generatedPassword = null;

@@ -3,9 +3,9 @@ package br.gustavoakira.dentist.boundary.form;
 import br.gustavoakira.dentist.boundary.listener.IListener;
 import br.gustavoakira.dentist.boundary.utils.Alerts;
 import br.gustavoakira.dentist.boundary.utils.TimeField;
-import br.gustavoakira.dentist.controller.AppointmentController;
-import br.gustavoakira.dentist.controller.ClientController;
-import br.gustavoakira.dentist.controller.security.LoginController;
+import br.gustavoakira.dentist.controller.AppointmentControl;
+import br.gustavoakira.dentist.controller.ClientControl;
+import br.gustavoakira.dentist.controller.security.LoginControl;
 import br.gustavoakira.dentist.entity.Appointment;
 import br.gustavoakira.dentist.entity.Client;
 import javafx.fxml.FXML;
@@ -42,11 +42,11 @@ public class AppointmentFormBoundary implements Initializable {
             appointment.setStartDate(LocalDateTime.of(startDate.getValue(), LocalTime.parse(startTime.getText())));
             appointment.setEndDate(LocalDateTime.of(endDate.getValue(), LocalTime.parse(endTime.getText())));
             appointment.setClient(clientComboBox.getValue());
-            appointment.setUser(LoginController.getLogged());
+            appointment.setUser(LoginControl.getLogged());
             if(appointment.getId() == null){
-                appointmentController.insert(appointment);
+                appointmentControl.insert(appointment);
             }else{
-                appointmentController.update(appointment);
+                appointmentControl.update(appointment);
             }
             sendNotification();
             ((Stage) ((Node)x.getSource()).getScene().getWindow()).close();
@@ -81,13 +81,13 @@ public class AppointmentFormBoundary implements Initializable {
     @FXML
     private Button cancelButton;
 
-    private final ClientController controller = new ClientController();
+    private final ClientControl controller = new ClientControl();
 
-    private final AppointmentController appointmentController = new AppointmentController();
+    private final AppointmentControl appointmentControl = new AppointmentControl();
 
     private void createComboBox(){
         settingComboBox();
-        clientComboBox.setItems(controller.getClients(LoginController.getLogged(),""));
+        clientComboBox.setItems(controller.getClients(LoginControl.getLogged(),""));
     }
 
     public void updateForm(){

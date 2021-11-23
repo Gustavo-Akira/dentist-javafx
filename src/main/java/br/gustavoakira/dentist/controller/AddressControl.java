@@ -6,7 +6,7 @@ import br.gustavoakira.dentist.entity.Address;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class AddressController {
+public class AddressControl {
 
     private AddressDao dao = DaoFactory.createAddressDao();
 
