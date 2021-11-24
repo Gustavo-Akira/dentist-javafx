@@ -2,7 +2,7 @@ package br.gustavoakira.dentist.boundary;
 
 import br.gustavoakira.dentist.boundary.form.UserFormBoundary;
 import br.gustavoakira.dentist.boundary.listener.IListener;
-import br.gustavoakira.dentist.controller.UserController;
+import br.gustavoakira.dentist.control.UserController;
 import br.gustavoakira.dentist.entity.User;
 import br.gustavoakira.dentist.boundary.utils.Alerts;
 import javafx.beans.property.ReadOnlyObjectWrapper;

@@ -1,6 +1,6 @@
 package br.gustavoakira.dentist.dao.impl;
 
-import br.gustavoakira.dentist.controller.security.LoginControl;
+import br.gustavoakira.dentist.control.security.LoginControl;
 import br.gustavoakira.dentist.dao.AppointmentDao;
 import br.gustavoakira.dentist.dao.ClientDao;
 import br.gustavoakira.dentist.db.DB;

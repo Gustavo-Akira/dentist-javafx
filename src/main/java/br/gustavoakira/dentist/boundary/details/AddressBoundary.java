@@ -3,7 +3,7 @@ package br.gustavoakira.dentist.boundary.details;
 import br.gustavoakira.dentist.boundary.form.AddressFormBoundary;
 import br.gustavoakira.dentist.boundary.listener.IListener;
 import br.gustavoakira.dentist.boundary.utils.Alerts;
-import br.gustavoakira.dentist.controller.AddressControl;
+import br.gustavoakira.dentist.control.AddressControl;
 import br.gustavoakira.dentist.entity.Address;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.property.SimpleLongProperty;

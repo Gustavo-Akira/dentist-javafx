@@ -3,7 +3,7 @@ package br.gustavoakira.dentist.boundary.details;
 import br.gustavoakira.dentist.boundary.form.PhoneFormBoundary;
 import br.gustavoakira.dentist.boundary.listener.IListener;
 import br.gustavoakira.dentist.boundary.utils.Alerts;
-import br.gustavoakira.dentist.controller.PhoneControl;
+import br.gustavoakira.dentist.control.PhoneControl;
 import br.gustavoakira.dentist.entity.Client;
 import br.gustavoakira.dentist.entity.Phone;
 import javafx.beans.property.ReadOnlyObjectWrapper;

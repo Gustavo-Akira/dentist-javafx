@@ -1,7 +1,7 @@
 package br.gustavoakira.dentist.boundary.form;
 
 import br.gustavoakira.dentist.boundary.listener.IListener;
-import br.gustavoakira.dentist.controller.AddressControl;
+import br.gustavoakira.dentist.control.AddressControl;
 import br.gustavoakira.dentist.entity.Address;
 import br.gustavoakira.dentist.entity.Client;
 import javafx.fxml.FXML;

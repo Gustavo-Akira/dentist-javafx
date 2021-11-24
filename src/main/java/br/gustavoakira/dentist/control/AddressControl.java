@@ -1,4 +1,4 @@
-package br.gustavoakira.dentist.controller;
+package br.gustavoakira.dentist.control;
 
 import br.gustavoakira.dentist.dao.AddressDao;
 import br.gustavoakira.dentist.dao.DaoFactory;

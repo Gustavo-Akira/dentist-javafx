@@ -1,4 +1,4 @@
-package br.gustavoakira.dentist.controller;
+package br.gustavoakira.dentist.control;
 
 import br.gustavoakira.dentist.dao.AddressDao;
 import br.gustavoakira.dentist.dao.ClientDao;
@@ -11,10 +11,6 @@ import javafx.collections.ObservableList;
 
 public class ClientControl {
     private final ClientDao dao = DaoFactory.createClientDao();
-
-    private final AddressDao addressDao = DaoFactory.createAddressDao();
-
-    private final PhoneDao phoneDao = DaoFactory.createPhoneDao();
 
     public ObservableList<Client> getClients(User user, String name){
         return FXCollections.observableList(dao.getAll(user.getId(),name));
@@ -30,11 +26,5 @@ public class ClientControl {
 
     public void delete(Long id){
         dao.delete(id);
-    }
-
-    public Client getDetails(Client client){
-        client.setAddress(addressDao.getAll(client.getId()));
-        client.setPhoneNumber(phoneDao.getAll(client.getId()));
-        return client;
     }
 }

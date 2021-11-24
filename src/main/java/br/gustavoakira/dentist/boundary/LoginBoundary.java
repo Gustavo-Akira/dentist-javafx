@@ -1,7 +1,7 @@
 package br.gustavoakira.dentist.boundary;
 
 import br.gustavoakira.dentist.boundary.utils.Alerts;
-import br.gustavoakira.dentist.controller.security.LoginControl;
+import br.gustavoakira.dentist.control.security.LoginControl;
 import br.gustavoakira.dentist.entity.User;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

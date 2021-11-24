@@ -1,6 +1,6 @@
-package br.gustavoakira.dentist.controller;
+package br.gustavoakira.dentist.control;
 
-import br.gustavoakira.dentist.controller.security.SecurityControl;
+import br.gustavoakira.dentist.control.security.SecurityControl;
 import br.gustavoakira.dentist.dao.DaoFactory;
 import br.gustavoakira.dentist.dao.UserDao;
 import br.gustavoakira.dentist.entity.User;

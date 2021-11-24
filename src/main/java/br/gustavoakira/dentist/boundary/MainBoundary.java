@@ -1,6 +1,6 @@
 package br.gustavoakira.dentist.boundary;
 
-import br.gustavoakira.dentist.controller.security.LoginControl;
+import br.gustavoakira.dentist.control.security.LoginControl;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;

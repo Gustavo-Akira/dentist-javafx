@@ -1,6 +1,5 @@
-package br.gustavoakira.dentist.controller;
+package br.gustavoakira.dentist.control;
 
-import br.gustavoakira.dentist.App;
 import br.gustavoakira.dentist.dao.AppointmentDao;
 import br.gustavoakira.dentist.dao.DaoFactory;
 import br.gustavoakira.dentist.entity.Appointment;

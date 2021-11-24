@@ -1,4 +1,4 @@
-package br.gustavoakira.dentist.controller.security;
+package br.gustavoakira.dentist.control.security;
 
 import br.gustavoakira.dentist.dao.DaoFactory;
 import br.gustavoakira.dentist.dao.UserDao;
