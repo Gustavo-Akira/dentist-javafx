@@ -30,7 +30,7 @@
         </rowConstraints>
          <children>
             <Label text="Id" />
-            <TextField fx:id="id" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="26.0" prefWidth="155.0" GridPane.columnIndex="1" GridPane.hgrow="NEVER">
+            <TextField fx:id="id" disable="true" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="26.0" prefWidth="155.0" GridPane.columnIndex="1" GridPane.hgrow="NEVER" >
                <GridPane.margin>
                   <Insets left="20.0" />
                </GridPane.margin>

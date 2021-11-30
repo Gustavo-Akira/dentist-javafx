@@ -82,7 +82,7 @@ public class UserBoundary implements Initializable, IListener {
     private void startEditButton(){
         editCol.setCellValueFactory(x -> new ReadOnlyObjectWrapper<>(x.getValue()));
         editCol.setCellFactory(x->new TableCell<User, User>(){
-            private final Button button = new Button("edit");
+            private final Button button = new Button("editar");
 
             @Override
             protected void updateItem(User item, boolean empty) {
@@ -105,7 +105,7 @@ public class UserBoundary implements Initializable, IListener {
     private void startDeleteButton(){
         deleteCol.setCellValueFactory(x -> new ReadOnlyObjectWrapper<>(x.getValue()));
         deleteCol.setCellFactory(x->new TableCell<User, User>(){
-            private final Button button = new Button("delete");
+            private final Button button = new Button("deletar");
 
             @Override
             protected void updateItem(User item, boolean empty) {

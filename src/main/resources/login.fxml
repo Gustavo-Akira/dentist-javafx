@@ -23,9 +23,9 @@
             <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Label maxHeight="-Infinity" maxWidth="-Infinity" text="Username" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
+            <Label maxHeight="-Infinity" maxWidth="-Infinity" text="Usuario" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
             <TextField fx:id="emailField" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="26.0" prefWidth="358.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-            <Label text="Password" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
+            <Label text="Senha" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
             <PasswordField fx:id="passwordField" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="26.0" prefWidth="358.0" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
             <Button fx:id="loginButton" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="15.0" prefWidth="138.0" text="Login" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
          </children>

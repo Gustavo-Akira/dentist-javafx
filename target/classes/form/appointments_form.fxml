@@ -52,7 +52,7 @@
             </Label>
             <DatePicker fx:id="startDate" prefHeight="26.0" prefWidth="234.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <DatePicker fx:id="endDate" prefHeight="26.0" prefWidth="235.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField fx:id="id" maxWidth="-Infinity" prefHeight="26.0" prefWidth="236.0" GridPane.columnIndex="1" />
+            <TextField fx:id="id" maxWidth="-Infinity" prefHeight="26.0" prefWidth="236.0" GridPane.columnIndex="1" disable="true"/>
             <ComboBox fx:id="clientComboBox" prefHeight="26.0" prefWidth="234.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
             <ButtonBar maxWidth="-Infinity" prefHeight="72.0" prefWidth="128.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
               <buttons>

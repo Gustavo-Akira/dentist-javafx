@@ -36,7 +36,7 @@
                 <Button fx:id="cancelButton" mnemonicParsing="false" text="cancel" />
               </buttons>
             </ButtonBar>
-            <TextField fx:id="id" maxWidth="-Infinity" prefHeight="26.0" prefWidth="301.0" GridPane.columnIndex="1">
+            <TextField fx:id="id" maxWidth="-Infinity" prefHeight="26.0" prefWidth="301.0" GridPane.columnIndex="1" disable="true">
                <GridPane.margin>
                   <Insets left="20.0" />
                </GridPane.margin>

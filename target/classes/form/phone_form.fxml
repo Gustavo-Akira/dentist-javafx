@@ -28,7 +28,7 @@
             <TextField fx:id="country" maxWidth="-Infinity" prefWidth="216.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <TextField fx:id="num" maxWidth="-Infinity" prefWidth="216.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField fx:id="ddd" maxWidth="-Infinity" prefWidth="216.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField fx:id="id" maxWidth="-Infinity" prefHeight="26.0" prefWidth="216.0" GridPane.columnIndex="1" />
+            <TextField fx:id="id" maxWidth="-Infinity" prefHeight="26.0" prefWidth="216.0" GridPane.columnIndex="1" disable="true"/>
             <ButtonBar maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="40.0" prefWidth="163.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                 <buttons>
                     <Button fx:id="addButton" mnemonicParsing="false" text="Add" />

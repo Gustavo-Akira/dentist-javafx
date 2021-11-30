@@ -77,7 +77,7 @@ public class ServiceBoundary implements Initializable, IListener {
     private void startEditButton(){
         edit.setCellValueFactory(x -> new ReadOnlyObjectWrapper<>(x.getValue()));
         edit.setCellFactory(x->new TableCell<Services, Services>(){
-            private final Button button = new Button("edit");
+            private final Button button = new Button("editar");
 
             @Override
             protected void updateItem(Services item, boolean empty) {
@@ -100,7 +100,7 @@ public class ServiceBoundary implements Initializable, IListener {
     private void startDeleteButton(){
         delete.setCellValueFactory(x -> new ReadOnlyObjectWrapper<>(x.getValue()));
         delete.setCellFactory(x->new TableCell<Services, Services>(){
-            private final Button button = new Button("delete");
+            private final Button button = new Button("deletar");
 
             @Override
             protected void updateItem(Services item, boolean empty) {

@@ -10,6 +10,7 @@ import javafx.scene.layout.CornerRadii;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
 
 public class App extends Application {
@@ -18,7 +19,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("login.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("./login.fxml"));
             AnchorPane parent = loader.load();
             Scene scene = new Scene(parent);
             stage.setResizable(false);

@@ -35,7 +35,7 @@
             <TextField fx:id="city" maxWidth="-Infinity" prefWidth="216.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <TextField fx:id="cep" maxWidth="-Infinity" prefWidth="216.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
             <TextField fx:id="street" maxWidth="-Infinity" prefWidth="216.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField fx:id="id" maxWidth="-Infinity" prefHeight="26.0" prefWidth="216.0" GridPane.columnIndex="1" />
+            <TextField fx:id="id" maxWidth="-Infinity" prefHeight="26.0" prefWidth="216.0" GridPane.columnIndex="1" disable="true"/>
             <ButtonBar maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="40.0" prefWidth="163.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
               <buttons>
                 <Button fx:id="addButton" mnemonicParsing="false" text="Add" />

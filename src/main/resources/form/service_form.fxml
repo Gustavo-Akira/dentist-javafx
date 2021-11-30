@@ -23,17 +23,19 @@
          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
      </rowConstraints>
       <children>
-          <TextField fx:id="id" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="224.0" text="" GridPane.columnIndex="1" GridPane.halignment="LEFT">
+          <TextField fx:id="id" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="224.0"
+                     GridPane.columnIndex="1" GridPane.halignment="LEFT" disable="true">
             <GridPane.margin>
                <Insets left="20.0" />
             </GridPane.margin>
          </TextField>
-          <TextField fx:id="name" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="224.0" text="" GridPane.columnIndex="1" GridPane.rowIndex="1">
+          <TextField fx:id="name" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="224.0"
+                     GridPane.columnIndex="1" GridPane.rowIndex="1">
             <GridPane.margin>
                <Insets left="20.0" />
             </GridPane.margin>
          </TextField>
-          <TextField fx:id="price" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="224.0" text="" GridPane.columnIndex="1" GridPane.rowIndex="2">
+          <TextField fx:id="price" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="224.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
             <GridPane.margin>
                <Insets left="20.0" />
             </GridPane.margin>
